@@ -8,6 +8,7 @@ namespace EarlyBookingService.WebAPI.Models
     public class PurchaseCost
     {
         public int Id { get; set; }
+        public int AcommodationId { get; set; }
         public Accomodation Accomodation { get; set; }
         public CostType CostType { get; set; }
         public DateTime BookingStartDate { get; set;}
