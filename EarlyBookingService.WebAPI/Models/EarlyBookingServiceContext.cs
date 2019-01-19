@@ -15,6 +15,8 @@ namespace EarlyBookingService.WebAPI.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+
+
             modelBuilder.Entity<Accomodation>()
                 .ToTable("Accomodation")
                 .HasData(
@@ -355,7 +357,7 @@ namespace EarlyBookingService.WebAPI.Models
                 new PurchaseCost
                 {
                     Id = 1,
-                    AcommodationId = 1,
+                    AccomodationId = 1,
                     CostType = CostType.EBR,
                     BookingStartDate = new DateTime(2019,1,1),
                     BookingEndDate = new DateTime(2019,1,31),
@@ -368,7 +370,7 @@ namespace EarlyBookingService.WebAPI.Models
                 new PurchaseCost
                 {
                     Id = 2,
-                    AcommodationId = 1,
+                    AccomodationId = 1,
                     CostType = CostType.Base,
                     BookingStartDate = new DateTime(2019, 1, 1),
                     BookingEndDate = new DateTime(2019, 6, 30),
@@ -380,7 +382,7 @@ namespace EarlyBookingService.WebAPI.Models
                 new PurchaseCost
                 {
                     Id = 3,
-                    AcommodationId = 2,
+                    AccomodationId = 2,
                     CostType = CostType.EBR,
                     BookingStartDate = new DateTime(2019, 1, 1),
                     BookingEndDate = new DateTime(2019, 1, 31),
@@ -393,7 +395,7 @@ namespace EarlyBookingService.WebAPI.Models
                 new PurchaseCost
                 {
                     Id = 4,
-                    AcommodationId = 2,
+                    AccomodationId = 2,
                     CostType = CostType.Base,
                     BookingStartDate = new DateTime(2019, 1, 1),
                     BookingEndDate = new DateTime(2019, 6, 30),
@@ -405,7 +407,7 @@ namespace EarlyBookingService.WebAPI.Models
                 new PurchaseCost
                 {
                     Id = 5,
-                    AcommodationId = 3,
+                    AccomodationId = 3,
                     CostType = CostType.EBR,
                     BookingStartDate = new DateTime(2019, 1, 1),
                     BookingEndDate = new DateTime(2019, 1, 31),
@@ -418,7 +420,7 @@ namespace EarlyBookingService.WebAPI.Models
                 new PurchaseCost
                 {
                     Id = 6,
-                    AcommodationId = 3,
+                    AccomodationId = 3,
                     CostType = CostType.Base,
                     BookingStartDate = new DateTime(2019, 1, 1),
                     BookingEndDate = new DateTime(2019, 6, 30),
@@ -430,7 +432,7 @@ namespace EarlyBookingService.WebAPI.Models
                 new PurchaseCost
                 {
                     Id = 7,
-                    AcommodationId = 4,
+                    AccomodationId = 4,
                     CostType = CostType.EBR,
                     BookingStartDate = new DateTime(2019, 1, 1),
                     BookingEndDate = new DateTime(2019, 1, 31),
@@ -443,7 +445,7 @@ namespace EarlyBookingService.WebAPI.Models
                 new PurchaseCost
                 {
                     Id = 8,
-                    AcommodationId = 4,
+                    AccomodationId = 4,
                     CostType = CostType.Base,
                     BookingStartDate = new DateTime(2019, 1, 1),
                     BookingEndDate = new DateTime(2019, 6, 30),

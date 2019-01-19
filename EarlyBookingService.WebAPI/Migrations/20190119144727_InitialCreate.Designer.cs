@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EarlyBookingService.WebAPI.Migrations
 {
     [DbContext(typeof(EarlyBookingServiceContext))]
-    [Migration("20190119134508_InitialCreate")]
+    [Migration("20190119144727_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -68,16 +68,16 @@ namespace EarlyBookingService.WebAPI.Migrations
                     b.ToTable("Booking");
 
                     b.HasData(
-                        new { Id = 1, AccomodationId = 1, BookingDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), EndDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), ReservationNumber = "A1A1A1", StartDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                        new { Id = 2, AccomodationId = 1, BookingDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), EndDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), ReservationNumber = "A2A2A2", StartDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                        new { Id = 3, AccomodationId = 2, BookingDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), EndDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), ReservationNumber = "B1B1B1", StartDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                        new { Id = 4, AccomodationId = 2, BookingDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), EndDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), ReservationNumber = "B2B2B2", StartDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                        new { Id = 5, AccomodationId = 3, BookingDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), EndDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), ReservationNumber = "C1C1C1", StartDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                        new { Id = 6, AccomodationId = 3, BookingDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), EndDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), ReservationNumber = "C2C2C2", StartDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                        new { Id = 7, AccomodationId = 3, BookingDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), EndDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), ReservationNumber = "C3C3C3", StartDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                        new { Id = 8, AccomodationId = 4, BookingDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), EndDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), ReservationNumber = "D1D1D1", StartDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                        new { Id = 9, AccomodationId = 4, BookingDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), EndDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), ReservationNumber = "D2D2D2", StartDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                        new { Id = 10, AccomodationId = 4, BookingDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), EndDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), ReservationNumber = "D3D3D3", StartDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) }
+                        new { Id = 1, AccomodationId = 1, BookingDate = new DateTime(2019, 1, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), EndDate = new DateTime(2019, 7, 25, 0, 0, 0, 0, DateTimeKind.Unspecified), ReservationNumber = "A1A1A1", StartDate = new DateTime(2019, 7, 15, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                        new { Id = 2, AccomodationId = 1, BookingDate = new DateTime(2019, 1, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), EndDate = new DateTime(2019, 4, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), ReservationNumber = "A2A2A2", StartDate = new DateTime(2019, 4, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                        new { Id = 3, AccomodationId = 2, BookingDate = new DateTime(2019, 1, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), EndDate = new DateTime(2019, 8, 25, 0, 0, 0, 0, DateTimeKind.Unspecified), ReservationNumber = "B1B1B1", StartDate = new DateTime(2019, 8, 15, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                        new { Id = 4, AccomodationId = 2, BookingDate = new DateTime(2019, 1, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), EndDate = new DateTime(2019, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), ReservationNumber = "B2B2B2", StartDate = new DateTime(2019, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                        new { Id = 5, AccomodationId = 3, BookingDate = new DateTime(2019, 1, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), EndDate = new DateTime(2019, 8, 25, 0, 0, 0, 0, DateTimeKind.Unspecified), ReservationNumber = "C1C1C1", StartDate = new DateTime(2019, 8, 15, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                        new { Id = 6, AccomodationId = 3, BookingDate = new DateTime(2019, 1, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), EndDate = new DateTime(2019, 7, 25, 0, 0, 0, 0, DateTimeKind.Unspecified), ReservationNumber = "C2C2C2", StartDate = new DateTime(2019, 7, 15, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                        new { Id = 7, AccomodationId = 3, BookingDate = new DateTime(2019, 1, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), EndDate = new DateTime(2019, 6, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), ReservationNumber = "C3C3C3", StartDate = new DateTime(2019, 6, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                        new { Id = 8, AccomodationId = 4, BookingDate = new DateTime(2019, 1, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), EndDate = new DateTime(2019, 7, 25, 0, 0, 0, 0, DateTimeKind.Unspecified), ReservationNumber = "D1D1D1", StartDate = new DateTime(2019, 7, 15, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                        new { Id = 9, AccomodationId = 4, BookingDate = new DateTime(2019, 1, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), EndDate = new DateTime(2019, 7, 25, 0, 0, 0, 0, DateTimeKind.Unspecified), ReservationNumber = "D2D2D2", StartDate = new DateTime(2019, 7, 15, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                        new { Id = 10, AccomodationId = 4, BookingDate = new DateTime(2019, 1, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), EndDate = new DateTime(2019, 7, 25, 0, 0, 0, 0, DateTimeKind.Unspecified), ReservationNumber = "D3D3D3", StartDate = new DateTime(2019, 7, 15, 0, 0, 0, 0, DateTimeKind.Unspecified) }
                     );
                 });
 
@@ -156,9 +156,7 @@ namespace EarlyBookingService.WebAPI.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("AccomodationId");
-
-                    b.Property<int>("AcommodationId");
+                    b.Property<int>("AccomodationId");
 
                     b.Property<double>("Amount");
 
@@ -187,14 +185,14 @@ namespace EarlyBookingService.WebAPI.Migrations
                     b.ToTable("PurchaseCost");
 
                     b.HasData(
-                        new { Id = 1, AcommodationId = 1, Amount = 10.0, BookingEndDate = new DateTime(2019, 1, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), BookingStartDate = new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), CostType = 1, PrepaymentDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), PrepaymentPercentage = 0, ReservationEndDate = new DateTime(2019, 8, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), ReservationStartDate = new DateTime(2019, 7, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), Status = 0, ValueType = 0 },
-                        new { Id = 2, AcommodationId = 1, Amount = 50.0, BookingEndDate = new DateTime(2019, 6, 30, 0, 0, 0, 0, DateTimeKind.Unspecified), BookingStartDate = new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), CostType = 0, PrepaymentDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), PrepaymentPercentage = 0, ReservationEndDate = new DateTime(2019, 10, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), ReservationStartDate = new DateTime(2019, 4, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), Status = 0, ValueType = 1 },
-                        new { Id = 3, AcommodationId = 2, Amount = 15.0, BookingEndDate = new DateTime(2019, 1, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), BookingStartDate = new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), CostType = 1, PrepaymentDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), PrepaymentPercentage = 0, ReservationEndDate = new DateTime(2019, 8, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), ReservationStartDate = new DateTime(2019, 7, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), Status = 0, ValueType = 0 },
-                        new { Id = 4, AcommodationId = 2, Amount = 70.0, BookingEndDate = new DateTime(2019, 6, 30, 0, 0, 0, 0, DateTimeKind.Unspecified), BookingStartDate = new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), CostType = 0, PrepaymentDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), PrepaymentPercentage = 0, ReservationEndDate = new DateTime(2019, 10, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), ReservationStartDate = new DateTime(2019, 4, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), Status = 0, ValueType = 1 },
-                        new { Id = 5, AcommodationId = 3, Amount = 20.0, BookingEndDate = new DateTime(2019, 1, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), BookingStartDate = new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), CostType = 1, PrepaymentDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), PrepaymentPercentage = 0, ReservationEndDate = new DateTime(2019, 8, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), ReservationStartDate = new DateTime(2019, 7, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), Status = 0, ValueType = 0 },
-                        new { Id = 6, AcommodationId = 3, Amount = 100.0, BookingEndDate = new DateTime(2019, 6, 30, 0, 0, 0, 0, DateTimeKind.Unspecified), BookingStartDate = new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), CostType = 0, PrepaymentDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), PrepaymentPercentage = 0, ReservationEndDate = new DateTime(2019, 10, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), ReservationStartDate = new DateTime(2019, 4, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), Status = 0, ValueType = 1 },
-                        new { Id = 7, AcommodationId = 4, Amount = 25.0, BookingEndDate = new DateTime(2019, 1, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), BookingStartDate = new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), CostType = 1, PrepaymentDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), PrepaymentPercentage = 0, ReservationEndDate = new DateTime(2019, 8, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), ReservationStartDate = new DateTime(2019, 7, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), Status = 0, ValueType = 0 },
-                        new { Id = 8, AcommodationId = 4, Amount = 150.0, BookingEndDate = new DateTime(2019, 6, 30, 0, 0, 0, 0, DateTimeKind.Unspecified), BookingStartDate = new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), CostType = 0, PrepaymentDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), PrepaymentPercentage = 0, ReservationEndDate = new DateTime(2019, 10, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), ReservationStartDate = new DateTime(2019, 4, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), Status = 0, ValueType = 1 }
+                        new { Id = 1, AccomodationId = 1, Amount = 10.0, BookingEndDate = new DateTime(2019, 1, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), BookingStartDate = new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), CostType = 1, PrepaymentDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), PrepaymentPercentage = 0, ReservationEndDate = new DateTime(2019, 8, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), ReservationStartDate = new DateTime(2019, 7, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), Status = 0, ValueType = 0 },
+                        new { Id = 2, AccomodationId = 1, Amount = 50.0, BookingEndDate = new DateTime(2019, 6, 30, 0, 0, 0, 0, DateTimeKind.Unspecified), BookingStartDate = new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), CostType = 0, PrepaymentDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), PrepaymentPercentage = 0, ReservationEndDate = new DateTime(2019, 10, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), ReservationStartDate = new DateTime(2019, 4, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), Status = 0, ValueType = 1 },
+                        new { Id = 3, AccomodationId = 2, Amount = 15.0, BookingEndDate = new DateTime(2019, 1, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), BookingStartDate = new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), CostType = 1, PrepaymentDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), PrepaymentPercentage = 0, ReservationEndDate = new DateTime(2019, 8, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), ReservationStartDate = new DateTime(2019, 7, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), Status = 0, ValueType = 0 },
+                        new { Id = 4, AccomodationId = 2, Amount = 70.0, BookingEndDate = new DateTime(2019, 6, 30, 0, 0, 0, 0, DateTimeKind.Unspecified), BookingStartDate = new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), CostType = 0, PrepaymentDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), PrepaymentPercentage = 0, ReservationEndDate = new DateTime(2019, 10, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), ReservationStartDate = new DateTime(2019, 4, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), Status = 0, ValueType = 1 },
+                        new { Id = 5, AccomodationId = 3, Amount = 20.0, BookingEndDate = new DateTime(2019, 1, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), BookingStartDate = new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), CostType = 1, PrepaymentDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), PrepaymentPercentage = 0, ReservationEndDate = new DateTime(2019, 8, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), ReservationStartDate = new DateTime(2019, 7, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), Status = 0, ValueType = 0 },
+                        new { Id = 6, AccomodationId = 3, Amount = 100.0, BookingEndDate = new DateTime(2019, 6, 30, 0, 0, 0, 0, DateTimeKind.Unspecified), BookingStartDate = new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), CostType = 0, PrepaymentDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), PrepaymentPercentage = 0, ReservationEndDate = new DateTime(2019, 10, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), ReservationStartDate = new DateTime(2019, 4, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), Status = 0, ValueType = 1 },
+                        new { Id = 7, AccomodationId = 4, Amount = 25.0, BookingEndDate = new DateTime(2019, 1, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), BookingStartDate = new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), CostType = 1, PrepaymentDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), PrepaymentPercentage = 0, ReservationEndDate = new DateTime(2019, 8, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), ReservationStartDate = new DateTime(2019, 7, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), Status = 0, ValueType = 0 },
+                        new { Id = 8, AccomodationId = 4, Amount = 150.0, BookingEndDate = new DateTime(2019, 6, 30, 0, 0, 0, 0, DateTimeKind.Unspecified), BookingStartDate = new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), CostType = 0, PrepaymentDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), PrepaymentPercentage = 0, ReservationEndDate = new DateTime(2019, 10, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), ReservationStartDate = new DateTime(2019, 4, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), Status = 0, ValueType = 1 }
                     );
                 });
 
@@ -222,7 +220,7 @@ namespace EarlyBookingService.WebAPI.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("EarlyBookingService.WebAPI.Models.PurchaseCost", "PurchaseCost")
-                        .WithMany()
+                        .WithMany("PriceDetails")
                         .HasForeignKey("PurchaseCostId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
@@ -231,7 +229,8 @@ namespace EarlyBookingService.WebAPI.Migrations
                 {
                     b.HasOne("EarlyBookingService.WebAPI.Models.Accomodation", "Accomodation")
                         .WithMany("PurchaseCosts")
-                        .HasForeignKey("AccomodationId");
+                        .HasForeignKey("AccomodationId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

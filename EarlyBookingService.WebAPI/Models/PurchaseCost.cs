@@ -5,10 +5,9 @@ using System.Threading.Tasks;
 
 namespace EarlyBookingService.WebAPI.Models
 {
-    public class PurchaseCost
+    public class PurchaseCost: EntityBase
     {
-        public int Id { get; set; }
-        public int AcommodationId { get; set; }
+        public int AccomodationId { get; set; }
         public Accomodation Accomodation { get; set; }
         public CostType CostType { get; set; }
         public DateTime BookingStartDate { get; set;}
