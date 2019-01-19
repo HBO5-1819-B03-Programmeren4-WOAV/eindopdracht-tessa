@@ -7,6 +7,7 @@ using EarlyBookingService.WebAPI.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using EarlyBookingService.WebAPI.Repositories.Base;
+using EarlyBookingService.Lib.Models;
 
 namespace EarlyBookingService.WebAPI.Controllers
 {

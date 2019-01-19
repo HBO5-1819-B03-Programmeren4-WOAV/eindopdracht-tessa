@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using EarlyBookingService.Lib.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace EarlyBookingService.WebAPI.Models

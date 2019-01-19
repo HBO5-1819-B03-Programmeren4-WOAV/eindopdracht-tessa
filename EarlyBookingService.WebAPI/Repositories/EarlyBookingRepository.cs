@@ -6,6 +6,7 @@ using EarlyBookingService.WebAPI.Models;
 using Microsoft.EntityFrameworkCore;
 using EarlyBookingService.WebAPI.Repositories.Base;
 using AutoMapper;
+using EarlyBookingService.Lib.Models;
 
 namespace EarlyBookingService.WebAPI.Repositories
 {

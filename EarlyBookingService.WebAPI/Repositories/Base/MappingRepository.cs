@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using EarlyBookingService.Lib.Models;
 using EarlyBookingService.WebAPI.Models;
 using System;
 using System.Collections.Generic;

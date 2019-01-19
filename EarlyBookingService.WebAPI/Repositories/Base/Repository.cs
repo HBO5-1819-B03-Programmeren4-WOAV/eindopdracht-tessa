@@ -1,4 +1,5 @@
-﻿using EarlyBookingService.WebAPI.Models;
+﻿using EarlyBookingService.Lib.Models;
+using EarlyBookingService.WebAPI.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
