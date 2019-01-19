@@ -15,9 +15,11 @@ namespace EarlyBookingService.WebAPI.Repositories
 
         }
 
-        public List<PurchaseCost> ListEBR()
+        public async Task<List<PurchaseCost>> ListEBR()
         {
-            return db.PurchaseCosts.Where(t => t.CostType == CostType.EBR).ToList();
+            return await GetAll()
+                .Where(t => t.CostType == CostType.EBR)
+                .ToListAsync();
         }
 
     }
