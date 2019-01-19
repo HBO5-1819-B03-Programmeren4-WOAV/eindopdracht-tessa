@@ -364,7 +364,7 @@ namespace EarlyBookingService.WebAPI.Models
                     BookingEndDate = new DateTime(2019,1,31),
                     ReservationStartDate = new DateTime(2019,7,1),
                     ReservationEndDate = new DateTime(2019,8,31),
-                    ValueType = ValueType.P,
+                    ValueType = Lib.Models.ValueType.P,
                     Amount = 10,
                     Status = Status.NotSent
                 },
@@ -377,7 +377,7 @@ namespace EarlyBookingService.WebAPI.Models
                     BookingEndDate = new DateTime(2019, 6, 30),
                     ReservationStartDate = new DateTime(2019, 4, 1),
                     ReservationEndDate = new DateTime(2019, 10, 31),
-                    ValueType = ValueType.A,
+                    ValueType = Lib.Models.ValueType.A,
                     Amount = 50,
                 },
                 new PurchaseCost
@@ -389,7 +389,7 @@ namespace EarlyBookingService.WebAPI.Models
                     BookingEndDate = new DateTime(2019, 1, 31),
                     ReservationStartDate = new DateTime(2019, 7, 1),
                     ReservationEndDate = new DateTime(2019, 8, 31),
-                    ValueType = ValueType.P,
+                    ValueType = Lib.Models.ValueType.P,
                     Amount = 15,
                     Status = Status.NotSent
                 },
@@ -402,7 +402,7 @@ namespace EarlyBookingService.WebAPI.Models
                     BookingEndDate = new DateTime(2019, 6, 30),
                     ReservationStartDate = new DateTime(2019, 4, 1),
                     ReservationEndDate = new DateTime(2019, 10, 31),
-                    ValueType = ValueType.A,
+                    ValueType = Lib.Models.ValueType.A,
                     Amount = 70,
                 },
                 new PurchaseCost
@@ -414,7 +414,7 @@ namespace EarlyBookingService.WebAPI.Models
                     BookingEndDate = new DateTime(2019, 1, 31),
                     ReservationStartDate = new DateTime(2019, 7, 1),
                     ReservationEndDate = new DateTime(2019, 8, 31),
-                    ValueType = ValueType.P,
+                    ValueType = Lib.Models.ValueType.P,
                     Amount = 20,
                     Status = Status.NotSent
                 },
@@ -427,7 +427,7 @@ namespace EarlyBookingService.WebAPI.Models
                     BookingEndDate = new DateTime(2019, 6, 30),
                     ReservationStartDate = new DateTime(2019, 4, 1),
                     ReservationEndDate = new DateTime(2019, 10, 31),
-                    ValueType = ValueType.A,
+                    ValueType = Lib.Models.ValueType.A,
                     Amount = 100,
                 },
                 new PurchaseCost
@@ -439,7 +439,7 @@ namespace EarlyBookingService.WebAPI.Models
                     BookingEndDate = new DateTime(2019, 1, 31),
                     ReservationStartDate = new DateTime(2019, 7, 1),
                     ReservationEndDate = new DateTime(2019, 8, 31),
-                    ValueType = ValueType.P,
+                    ValueType = Lib.Models.ValueType.P,
                     Amount = 25,
                     Status = Status.NotSent
                 },
@@ -452,7 +452,7 @@ namespace EarlyBookingService.WebAPI.Models
                     BookingEndDate = new DateTime(2019, 6, 30),
                     ReservationStartDate = new DateTime(2019, 4, 1),
                     ReservationEndDate = new DateTime(2019, 10, 31),
-                    ValueType = ValueType.A,
+                    ValueType = Lib.Models.ValueType.A,
                     Amount = 150,
                 }
                 );
