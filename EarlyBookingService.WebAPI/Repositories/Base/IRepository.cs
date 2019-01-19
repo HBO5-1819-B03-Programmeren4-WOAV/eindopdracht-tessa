@@ -5,7 +5,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-namespace EarlyBookingService.WebAPI.Repositories
+namespace EarlyBookingService.WebAPI.Repositories.Base
 {
     public interface IRepository<T> where T: EntityBase
     {

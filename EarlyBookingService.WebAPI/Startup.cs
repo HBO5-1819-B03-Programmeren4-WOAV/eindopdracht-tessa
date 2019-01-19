@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using EarlyBookingService.WebAPI.Models;
 using EarlyBookingService.WebAPI.Repositories;
+using EarlyBookingService.WebAPI.Services.AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -28,6 +29,14 @@ namespace EarlyBookingService.WebAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var config = new AutoMapper.MapperConfiguration(cfg =>
+            {
+                cfg.AddProfile(new AutoMapperProfileConfiguration());
+            });
+
+            var mapper = config.CreateMapper();
+            services.AddSingleton(mapper);
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddDbContext<EarlyBookingServiceContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("EarlyBookingService")));

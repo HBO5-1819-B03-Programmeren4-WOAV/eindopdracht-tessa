@@ -4,13 +4,15 @@ using System.Linq;
 using System.Threading.Tasks;
 using EarlyBookingService.WebAPI.Models;
 using Microsoft.EntityFrameworkCore;
+using EarlyBookingService.WebAPI.Repositories.Base;
+using AutoMapper;
 
 namespace EarlyBookingService.WebAPI.Repositories
 {
-    public class EarlyBookingRepository: Repository<PurchaseCost>
+    public class EarlyBookingRepository: MappingRepository<PurchaseCost>
     {
 
-        public EarlyBookingRepository(EarlyBookingServiceContext context) : base(context)
+        public EarlyBookingRepository(EarlyBookingServiceContext context, IMapper mapper) : base(context, mapper)
         {
 
         }
