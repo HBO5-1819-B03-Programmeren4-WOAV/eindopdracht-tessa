@@ -54,61 +54,91 @@ namespace EarlyBookingService.WebAPI.Models
                 {
                     Id = 1,
                     ReservationNumber = "A1A1A1",
-                    AccomodationId = 1
+                    AccomodationId = 1,
+                    BookingDate = new DateTime(2019,1,19),
+                    StartDate = new DateTime(2019,7,15),
+                    EndDate = new DateTime(2019,7,25)
                 },
                 new Booking
                 {
                     Id = 2,
                     ReservationNumber = "A2A2A2",
-                    AccomodationId = 1
+                    AccomodationId = 1,
+                    BookingDate = new DateTime(2019, 1, 19),
+                    StartDate = new DateTime(2019, 4, 1),
+                    EndDate = new DateTime(2019, 4, 15)
                 },
                 new Booking
                 {
                     Id = 3,
                     ReservationNumber = "B1B1B1",
-                    AccomodationId = 2
+                    AccomodationId = 2,
+                    BookingDate = new DateTime(2019, 1, 19),
+                    StartDate = new DateTime(2019, 8, 15),
+                    EndDate = new DateTime(2019, 8, 25)
                 },
                 new Booking
                 {
                     Id = 4,
                     ReservationNumber = "B2B2B2",
-                    AccomodationId = 2
+                    AccomodationId = 2,
+                    BookingDate = new DateTime(2019, 1, 19),
+                    StartDate = new DateTime(2019, 5, 1),
+                    EndDate = new DateTime(2019, 5, 15)
                 },
                 new Booking
                 {
                     Id = 5,
                     ReservationNumber = "C1C1C1",
-                    AccomodationId = 3
+                    AccomodationId = 3,
+                    BookingDate = new DateTime(2019, 1, 19),
+                    StartDate = new DateTime(2019, 8, 15),
+                    EndDate = new DateTime(2019, 8, 25)
                 },
                 new Booking
                 {
                     Id = 6,
                     ReservationNumber = "C2C2C2",
-                    AccomodationId = 3
+                    AccomodationId = 3,
+                    BookingDate = new DateTime(2019, 1, 19),
+                    StartDate = new DateTime(2019, 7, 15),
+                    EndDate = new DateTime(2019, 7, 25)
                 },
                 new Booking
                 {
                     Id = 7,
                     ReservationNumber = "C3C3C3",
-                    AccomodationId = 3
+                    AccomodationId = 3,
+                    BookingDate = new DateTime(2019, 1, 19),
+                    StartDate = new DateTime(2019, 6, 10),
+                    EndDate = new DateTime(2019, 6, 18)
                 },
                 new Booking
                 {
                     Id = 8,
                     ReservationNumber = "D1D1D1",
-                    AccomodationId = 4
+                    AccomodationId = 4,
+                    BookingDate = new DateTime(2019, 1, 19),
+                    StartDate = new DateTime(2019, 7, 15),
+                    EndDate = new DateTime(2019, 7, 25)
                 },
                 new Booking
                 {
                     Id = 9,
                     ReservationNumber = "D2D2D2",
-                    AccomodationId = 4
+                    AccomodationId = 4,
+                    BookingDate = new DateTime(2019, 1, 19),
+                    StartDate = new DateTime(2019, 7, 15),
+                    EndDate = new DateTime(2019, 7, 25)
                 },
                 new Booking
                 {
                     Id = 10,
                     ReservationNumber = "D3D3D3",
-                    AccomodationId = 4
+                    AccomodationId = 4,
+                    BookingDate = new DateTime(2019, 1, 19),
+                    StartDate = new DateTime(2019, 7, 15),
+                    EndDate = new DateTime(2019, 7, 25)
                 });
 
             modelBuilder.Entity<Participant>()
@@ -310,11 +340,119 @@ namespace EarlyBookingService.WebAPI.Models
                 }
                 );
 
-            modelBuilder.Entity<PriceDetail>()
-                .ToTable("PriceDetail");
+            //modelBuilder.Entity<PriceDetail>()
+               //.ToTable("PriceDetail")
+                //.HasData(
+                //new PriceDetail
+                //{
+                    
+                //}
+                //);
 
             modelBuilder.Entity<PurchaseCost>()
-                .ToTable("PurchaseCost");
+                .ToTable("PurchaseCost")
+                .HasData(
+                new PurchaseCost
+                {
+                    Id = 1,
+                    AcommodationId = 1,
+                    CostType = CostType.EBR,
+                    BookingStartDate = new DateTime(2019,1,1),
+                    BookingEndDate = new DateTime(2019,1,31),
+                    ReservationStartDate = new DateTime(2019,7,1),
+                    ReservationEndDate = new DateTime(2019,8,31),
+                    ValueType = ValueType.P,
+                    Amount = 10,
+                    Status = Status.NotSent
+                },
+                new PurchaseCost
+                {
+                    Id = 2,
+                    AcommodationId = 1,
+                    CostType = CostType.Base,
+                    BookingStartDate = new DateTime(2019, 1, 1),
+                    BookingEndDate = new DateTime(2019, 6, 30),
+                    ReservationStartDate = new DateTime(2019, 4, 1),
+                    ReservationEndDate = new DateTime(2019, 10, 31),
+                    ValueType = ValueType.A,
+                    Amount = 50,
+                },
+                new PurchaseCost
+                {
+                    Id = 3,
+                    AcommodationId = 2,
+                    CostType = CostType.EBR,
+                    BookingStartDate = new DateTime(2019, 1, 1),
+                    BookingEndDate = new DateTime(2019, 1, 31),
+                    ReservationStartDate = new DateTime(2019, 7, 1),
+                    ReservationEndDate = new DateTime(2019, 8, 31),
+                    ValueType = ValueType.P,
+                    Amount = 15,
+                    Status = Status.NotSent
+                },
+                new PurchaseCost
+                {
+                    Id = 4,
+                    AcommodationId = 2,
+                    CostType = CostType.Base,
+                    BookingStartDate = new DateTime(2019, 1, 1),
+                    BookingEndDate = new DateTime(2019, 6, 30),
+                    ReservationStartDate = new DateTime(2019, 4, 1),
+                    ReservationEndDate = new DateTime(2019, 10, 31),
+                    ValueType = ValueType.A,
+                    Amount = 70,
+                },
+                new PurchaseCost
+                {
+                    Id = 5,
+                    AcommodationId = 3,
+                    CostType = CostType.EBR,
+                    BookingStartDate = new DateTime(2019, 1, 1),
+                    BookingEndDate = new DateTime(2019, 1, 31),
+                    ReservationStartDate = new DateTime(2019, 7, 1),
+                    ReservationEndDate = new DateTime(2019, 8, 31),
+                    ValueType = ValueType.P,
+                    Amount = 20,
+                    Status = Status.NotSent
+                },
+                new PurchaseCost
+                {
+                    Id = 6,
+                    AcommodationId = 3,
+                    CostType = CostType.Base,
+                    BookingStartDate = new DateTime(2019, 1, 1),
+                    BookingEndDate = new DateTime(2019, 6, 30),
+                    ReservationStartDate = new DateTime(2019, 4, 1),
+                    ReservationEndDate = new DateTime(2019, 10, 31),
+                    ValueType = ValueType.A,
+                    Amount = 100,
+                },
+                new PurchaseCost
+                {
+                    Id = 7,
+                    AcommodationId = 4,
+                    CostType = CostType.EBR,
+                    BookingStartDate = new DateTime(2019, 1, 1),
+                    BookingEndDate = new DateTime(2019, 1, 31),
+                    ReservationStartDate = new DateTime(2019, 7, 1),
+                    ReservationEndDate = new DateTime(2019, 8, 31),
+                    ValueType = ValueType.P,
+                    Amount = 25,
+                    Status = Status.NotSent
+                },
+                new PurchaseCost
+                {
+                    Id = 8,
+                    AcommodationId = 4,
+                    CostType = CostType.Base,
+                    BookingStartDate = new DateTime(2019, 1, 1),
+                    BookingEndDate = new DateTime(2019, 6, 30),
+                    ReservationStartDate = new DateTime(2019, 4, 1),
+                    ReservationEndDate = new DateTime(2019, 10, 31),
+                    ValueType = ValueType.A,
+                    Amount = 150,
+                }
+                );
         }
 
         public DbSet<Accomodation> Accomodations { get; set; }

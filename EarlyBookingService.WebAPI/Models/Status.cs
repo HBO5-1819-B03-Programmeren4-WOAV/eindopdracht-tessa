@@ -5,9 +5,12 @@ using System.Threading.Tasks;
 
 namespace EarlyBookingService.WebAPI.Models
 {
-    public enum CostType
+    public enum Status
     {
-        Base = 0,
-        EBR = 1 //Early Booking Reduction
+        NotSent,
+        SentWithoutPrices,
+        Validated,
+        SentWithPrices,
+        Prepayment
     }
 }

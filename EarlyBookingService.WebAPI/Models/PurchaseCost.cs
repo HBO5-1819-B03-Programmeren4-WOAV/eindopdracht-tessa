@@ -19,5 +19,6 @@ namespace EarlyBookingService.WebAPI.Models
         public double Amount { get; set; }
         public DateTime PrepaymentDate { get; set; }
         public int PrepaymentPercentage { get; set; }
+        public Status Status { get; set; }
     }
 }
