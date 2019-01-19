@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using EarlyBookingService.WebAPI.Repositories.Base;
 using AutoMapper;
 using EarlyBookingService.Lib.Models;
+using EarlyBookingService.Lib.DTOs;
 
 namespace EarlyBookingService.WebAPI.Repositories
 {
@@ -24,6 +25,28 @@ namespace EarlyBookingService.WebAPI.Repositories
                 .Where(t => t.CostType == CostType.EBR)
                 .ToListAsync();
         }
+
+        public async Task<List<ConditionDetail>> ListDetail()
+        {
+            return await db.PurchaseCosts.Where(t => t.CostType == CostType.EBR)
+                .Select(c => new ConditionDetail
+            {
+                Id = c.Id,
+                AccomodationId = c.Accomodation.Id,
+                AccomodationName = c.Accomodation.Name,
+                AccomodationCountry = c.Accomodation.Country,
+                BookingStartDate = c.BookingStartDate,
+                BookingEndDate = c.BookingEndDate,
+                ReservationEndDate = c.ReservationEndDate,
+                ReservationStartDate = c.ReservationStartDate,
+                ValueType = c.ValueType,
+                Amount = c.Amount,
+                PrepaymentDate = c.PrepaymentDate,
+                PrepaymentPercentage = c.PrepaymentPercentage,
+                Status = c.Status,
+            }).ToListAsync();
+        }
+
 
     }
 }

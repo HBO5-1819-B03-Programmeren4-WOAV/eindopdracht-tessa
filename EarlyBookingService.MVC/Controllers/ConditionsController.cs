@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using EarlyBookingService.MVC.Helper;
 using EarlyBookingService.Lib.Models;
+using EarlyBookingService.Lib.DTOs;
 
 namespace EarlyBookingService.MVC.Controllers
 {
@@ -14,7 +15,7 @@ namespace EarlyBookingService.MVC.Controllers
         public IActionResult Index()
         {
             string conditionsUri = $"{baseuri}";
-            return View(WebApiHelper.GetApiResult<List<PurchaseCost>>(conditionsUri));
+            return View(WebApiHelper.GetApiResult<List<ConditionDetail>>(conditionsUri));
         }
     }
 }

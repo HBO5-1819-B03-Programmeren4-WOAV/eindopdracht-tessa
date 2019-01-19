@@ -1,13 +1,13 @@
-﻿@using EarlyBookingService.Lib.Models
-@model List<PurchaseCost>
+﻿@using EarlyBookingService.Lib.DTOs
+@model List<ConditionDetail>
 
 <h1>Early Booking Conditions</h1>
 
 <div class="row">
     <div class="col-md-4">
-            @foreach (PurchaseCost purchaseCost in Model)
+            @foreach (ConditionDetail condition in Model)
             {
-                <h2>@purchaseCost.AccomodationId</h2>
+                <h2>@condition.AccomodationName</h2>
             }
     </div>
 </div>

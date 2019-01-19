@@ -23,7 +23,7 @@ namespace EarlyBookingService.WebAPI.Controllers
         [HttpGet]
         public override async Task<IActionResult> Get()
         {
-            return Ok(await repository.ListEBR());
+            return Ok(await repository.ListDetail());
         }
 
     }
