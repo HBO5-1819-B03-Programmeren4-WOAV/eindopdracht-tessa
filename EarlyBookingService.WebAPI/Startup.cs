@@ -40,7 +40,7 @@ namespace EarlyBookingService.WebAPI
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddDbContext<EarlyBookingServiceContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("EarlyBookingService")));
-            services.AddScoped<EarlyBookingRepository>();
+            services.AddScoped<PurchaseCostRepository>();
             services.AddScoped<BookingRepository>();
             services.AddScoped<AccomodationRepository>();
 

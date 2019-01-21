@@ -12,19 +12,18 @@ namespace EarlyBookingService.WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class EarlyBookingConditionsController : ControllerCrudBase<PurchaseCost, EarlyBookingRepository>
+    public class PurchaseCostController : ControllerCrudBase<PurchaseCost, PurchaseCostRepository>
     {
 
-        public EarlyBookingConditionsController(EarlyBookingRepository ebRepository) : base(ebRepository)
+        public PurchaseCostController(PurchaseCostRepository ebRepository) : base(ebRepository)
         {
         }
 
-        // GET : api/EarlyBookingConditions
-        [HttpGet]
-        public override async Task<IActionResult> Get()
+        // GET: api/T/2
+        [HttpGet("{id}")]
+        public override async Task<IActionResult> Get(int id)
         {
-            return Ok(await repository.ListDetail());
+            return Ok(await repository.ListEBRPerAcco(id));
         }
-
     }
 }

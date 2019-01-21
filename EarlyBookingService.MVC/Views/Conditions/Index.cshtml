@@ -1,29 +1,28 @@
-﻿@using EarlyBookingService.Lib.DTOs
-@model List<ConditionDetail>
+﻿@using EarlyBookingService.Lib.Models
+@model List<PurchaseCost>
 
 <h1>Early Booking Conditions</h1>
 
 <div class="row">
     <div class="col-md-4">
-        @foreach (ConditionDetail condition in Model)
+        @foreach (PurchaseCost ebCost in Model)
         {
             <div>
-                <h2>@condition.AccomodationName</h2>
                 <div class="bookingdate">
                     <i class="fas fa-book"></i>
-                    <span>@condition.BookingStartDate</span>
+                    <span>@ebCost.BookingStartDate</span>
                     -
-                    <span>@condition.BookingEndDate</span>
+                    <span>@ebCost.BookingEndDate</span>
                 </div>
                 <div class="traveldate">
                     <i class="fas fa-plane-departure"></i>
-                    <span>@condition.ReservationStartDate</span>
+                    <span>@ebCost.ReservationStartDate</span>
                     -
-                    <span>@condition.ReservationEndDate</span>
+                    <span>@ebCost.ReservationEndDate</span>
                 </div>
                 <div class="ebpercentage">
                     <i class="fas fa-percent"></i>
-                    <span>@condition.Amount</span>
+                    <span>@ebCost.Amount</span>
                 </div>
                 <div class="prepayment">
                     <i class="far fa-credit-card"></i>
