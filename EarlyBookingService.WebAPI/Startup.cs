@@ -41,6 +41,7 @@ namespace EarlyBookingService.WebAPI
             services.AddDbContext<EarlyBookingServiceContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("EarlyBookingService")));
             services.AddScoped<EarlyBookingRepository>();
+            services.AddScoped<BookingRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
