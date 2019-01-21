@@ -7,11 +7,31 @@
     <div class="col-md-4">
         @foreach (ConditionDetail condition in Model)
         {
-            <h2>@condition.AccomodationName</h2>
-            <div>@condition.BookingStartDate</div>
-            <div>@condition.BookingEndDate</div>
-            <div>@condition.ReservationStartDate</div>
-            <div>@condition.ReservationEndDate</div>
+            <div>
+                <h2>@condition.AccomodationName</h2>
+                <div class="bookingdate">
+                    <i class="fas fa-book"></i>
+                    <span>@condition.BookingStartDate</span>
+                    -
+                    <span>@condition.BookingEndDate</span>
+                </div>
+                <div class="traveldate">
+                    <i class="fas fa-plane-departure"></i>
+                    <span>@condition.ReservationStartDate</span>
+                    -
+                    <span>@condition.ReservationEndDate</span>
+                </div>
+                <div class="ebpercentage">
+                    <i class="fas fa-percent"></i>
+                    <span>@condition.Amount</span>
+                </div>
+                <div class="prepayment">
+                    <i class="far fa-credit-card"></i>
+                </div>
+                <button>Show bookings</button>
+            </div>
         }
     </div>
 </div>
+
+

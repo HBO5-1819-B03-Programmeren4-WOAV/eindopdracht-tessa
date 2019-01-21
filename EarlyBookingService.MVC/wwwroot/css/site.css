@@ -35,3 +35,13 @@ body {
         display: none;
     }
 }
+
+.traveldate, bookingdate, .ebpercentage {
+    margin-top: 5px;
+}
+    .traveldate i.fas, .bookingdate i.fas, .ebpercentage i.fas {
+        margin-right: 10px;
+        font-size: 18px;
+        color: purple;
+    }
+

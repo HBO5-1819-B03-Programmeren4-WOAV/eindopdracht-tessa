@@ -11,10 +11,10 @@ namespace EarlyBookingService.Lib.DTOs
         public int AccomodationId { get; set; }
         public string AccomodationName { get; set; }
         public string AccomodationCountry { get; set; }
-        public DateTime BookingStartDate { get; set; }
-        public DateTime BookingEndDate { get; set; }
-        public DateTime ReservationStartDate { get; set; }
-        public DateTime ReservationEndDate { get; set; }
+        public String BookingStartDate { get; set; }
+        public String BookingEndDate { get; set; }
+        public String ReservationStartDate { get; set; }
+        public String ReservationEndDate { get; set; }
         public Models.ValueType ValueType { get; set; }
         public double Amount { get; set; }
         public DateTime PrepaymentDate { get; set; }

@@ -1,0 +1,60 @@
+﻿@using EarlyBookingService.Lib.Models
+@model List<Accomodation>
+
+<h1>Accomodations</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <ul class="list-group">
+            @foreach (Accomodation acco in Model)
+            {
+                <li class="list-group-item">
+                    <b><a href="#" data-id="@acco.Id" class="accomodation">@acco.Name</a><button>Show conditions</button></b>
+                </li>
+            }
+        </ul>
+    </div>
+</div>
+
+<!-- Bootstrap Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <h4 class="modal-title" id="myModalLabel">Accomodation detail:</h4>
+            </div>
+            <div class="modal-body">
+                Details
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+    {
+    <script>
+        $(document).ready(function () {
+            var url = 'https://localhost:44328/api/Accomodation/';
+
+            var infoModal = $('#myModal');
+            $('.accomodation').on('click', function () {
+                fetch(url + '/' + $(this).data('id'))
+                    .then(response => response.json())
+                    .then(function (accomodation) { showAccomodationDetail(accomodation); });
+            });
+
+            showAccomodationDetail = function (accomodation) {
+                var htmlData = '<b>Name:</b> ' + accomodation.name + '<br \>';
+                htmlData += '<b>Country:</b> ' + accomodation.country + '<br \>';
+                htmlData += '<b>Email addres:</b> ' + accomodation.email + '<hr>';
+                infoModal.find('.modal-body').html(htmlData);
+                infoModal.modal('show');
+            };
+        });
+    </script>
+
+}

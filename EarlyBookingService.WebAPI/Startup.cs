@@ -42,6 +42,9 @@ namespace EarlyBookingService.WebAPI
                 options.UseSqlServer(Configuration.GetConnectionString("EarlyBookingService")));
             services.AddScoped<EarlyBookingRepository>();
             services.AddScoped<BookingRepository>();
+            services.AddScoped<AccomodationRepository>();
+
+            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -57,7 +60,14 @@ namespace EarlyBookingService.WebAPI
             }
 
             app.UseHttpsRedirection();
+
+            app.UseCors(builder =>
+                builder
+                .AllowAnyOrigin()
+                .AllowAnyHeader()
+                .AllowAnyMethod());
             app.UseMvc();
+
         }
     }
 }

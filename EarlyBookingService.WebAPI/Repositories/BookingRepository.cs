@@ -22,6 +22,8 @@ namespace EarlyBookingService.WebAPI.Repositories
             return await GetAll()
                 .Where(t => t.AccomodationId == Id)
                 .ToListAsync();
+
+            //to change to booking with a EB purchase cost
         }
     }
 }
