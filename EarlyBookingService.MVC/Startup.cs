@@ -67,7 +67,7 @@ namespace EarlyBookingService.MVC
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Conditions}/{action=Index}/{id?}");
+                    template: "{controller=Accomodations}/{action=Index}/{id?}");
             });
         }
     }

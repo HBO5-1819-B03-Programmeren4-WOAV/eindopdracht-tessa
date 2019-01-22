@@ -10,7 +10,7 @@ namespace EarlyBookingService.MVC.Controllers
 {
     public class AccomodationsController : Controller
     {
-        string baseUri = "https://localhost:44328/api/Accomodation/";
+        string baseUri = "https://localhost:44396/api/Accomodation/";
         public IActionResult Index()
         {
             string conditionsUri = $"{baseUri}";

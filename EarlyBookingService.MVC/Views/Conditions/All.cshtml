@@ -1,0 +1,65 @@
+﻿
+<h1>Early Booking Conditions</h1>
+
+<article id="app" class="row">
+    <header class="col-md-4">
+        <h3>{{ message }}</h3>
+        <nav>
+            <ul class="list-group">
+                <li class="list-group-item" v-for="condition in conditions">
+                    <div class="bookingdate">
+                        <i class="fas fa-book"></i>
+                        <span>{{ condition.bookingStartDate }}</span>
+                        -
+                        <span>{{ condition.bookingEndDate }}</span>
+                    </div>
+                    <div class="traveldate">
+                        <i class="fas fa-plane-departure"></i>
+                        <span>{{ condition.reservationStartDate }}</span>
+                        -
+                        <span>{{ condition.reservationEndDate }}</span>
+                    </div>
+                    <div class="ebpercentage">
+                        <i class="fas fa-percent"></i>
+                        <span>{{ condition.amount }}</span>
+                    </div>
+                    <div class="prepayment">
+                        <i class="far fa-credit-card"></i>
+                    </div>
+                    <button>Show bookings</button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+</article>
+
+@section scripts{
+    
+    <script src="~/js/vue.js"></script>
+    <script>
+        var apiURL = 'https://localhost:44396/api/PurchaseCost/';
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Loading early booking conditions...',
+                books: null,
+            },
+            created: function () {
+                var self = this;
+                self.fetchConditions();
+            },
+            methods: {
+                fetchConditions: function () {
+                    self = this;
+                    fetch(`${apiURL}`)
+                        .then(res => res.json())
+                        .then(function (conditions) {
+                            self.conditions = conditions;
+                            self.message = 'Overview';
+                        })
+                        .catch(err => console.error('Fout: ' + err));
+                },
+            }
+        });
+    </script>
+}

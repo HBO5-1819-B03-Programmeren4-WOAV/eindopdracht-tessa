@@ -8,9 +8,9 @@
         <ul class="list-group">
             @foreach (Accomodation acco in Model)
             {
-                <li class="list-group-item">
-                    <b><a href="#" data-id="@acco.Id" class="accomodation">@acco.Name</a><button asp-controller="Conditions" asp-action="Index" asp-route-id="@acco.Id" class="btn btn-primary">Show conditions</button></b>
-                </li>
+            <li class="list-group-item">
+                <b><a href="#" data-id="@acco.Id" class="accomodation">@acco.Name</a></b><span><a asp-controller="Conditions" asp-action="Index" asp-route-id="@acco.Id">Show conditions</a></span>
+            </li>
             }
         </ul>
     </div>
@@ -38,7 +38,7 @@
     {
     <script>
         $(document).ready(function () {
-            var url = 'https://localhost:44328/api/Accomodation/';
+            var url = 'https://localhost:44396/api/Accomodation/';
 
             var infoModal = $('#myModal');
             $('.accomodation').on('click', function () {
