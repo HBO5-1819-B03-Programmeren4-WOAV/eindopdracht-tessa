@@ -18,15 +18,22 @@ namespace EarlyBookingService.WebAPI.Controllers
         public PurchaseCostController(PurchaseCostRepository ebRepository) : base(ebRepository)
         {
         }
+
+        [HttpGet]
         public override async Task<IActionResult> Get()
         {
             return Ok(await repository.ListEBR());
         }
 
-
-        // GET: api/T/2
         [HttpGet("{id}")]
         public override async Task<IActionResult> Get(int id)
+        {
+            return Ok(await repository.GetById(id));
+        }
+        
+        // GET: api/T/2
+        [HttpGet("Acco/{id}")]
+        public async Task<IActionResult> GetByAcco(int id)
         {
             return Ok(await repository.ListEBRPerAcco(id));
         }

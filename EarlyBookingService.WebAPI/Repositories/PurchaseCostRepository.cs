@@ -22,6 +22,7 @@ namespace EarlyBookingService.WebAPI.Repositories
         {
             //show all purchase cost of Early Booking type for Accomodation
             return await GetAll()
+                .Include(t => t.Accomodation)
                 .Where(t => t.CostType == CostType.EBR)
                 .ToListAsync();
         }
@@ -33,6 +34,14 @@ namespace EarlyBookingService.WebAPI.Repositories
                 .Where(t => t.CostType == CostType.EBR && t.AccomodationId == Id)
                 .ToListAsync();
         }
-        
+
+        public override async Task<PurchaseCost> GetById(int id)
+        {
+            return await db.PurchaseCosts
+                .Include(p => p.Accomodation)
+                .FirstOrDefaultAsync(p => p.Id == id);
+        }
+
+
     }
 }

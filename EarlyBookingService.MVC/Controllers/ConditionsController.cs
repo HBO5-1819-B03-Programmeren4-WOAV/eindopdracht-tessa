@@ -10,7 +10,7 @@ namespace EarlyBookingService.MVC.Controllers
 {
     public class ConditionsController : Controller
     {
-        string baseEburi = "https://localhost:44396/api/PurchaseCost/";
+        string baseEburi = "https://localhost:44396/api/PurchaseCost/Acco/";
         public IActionResult Index(int Id)
         {
             string conditionsUri = $"{baseEburi}/{Id}";

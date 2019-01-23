@@ -6,7 +6,9 @@
         <h3>{{ message }}</h3>
         <nav>
             <ul class="list-group">
-                <li class="list-group-item" v-for="condition in conditions">
+                <li v-for="condition in conditions" v-on:click="fetchPrepaymentDetails(condition)"
+                    :class="getConditionClass(condition)" style="cursor:pointer">
+                    <h4>{{ condition.accomodation.name }}</h4>
                     <div class="bookingdate">
                         <i class="fas fa-book"></i>
                         <span>{{ condition.bookingStartDate }}</span>
@@ -23,14 +25,24 @@
                         <i class="fas fa-percent"></i>
                         <span>{{ condition.amount }}</span>
                     </div>
-                    <div class="prepayment">
-                        <i class="far fa-credit-card"></i>
-                    </div>
-                    <button>Show bookings</button>
                 </li>
             </ul>
         </nav>
     </header>
+    <div v-if="currentCondition" class="col-md-6">
+        <h3>Details</h3>
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label class="control-label small"><i class="far fa-credit-card"></i> Prepayment %</label>
+                <input type="number" class="form-control" :value="currentCondition.prepaymentPercentage" readonly />
+            </div>
+            <div class="form-group">
+                <label class="control-label small"><i class="far fa-calendar"></i> Prepayment date</label>
+                <input type="date" class="form-control" :value="currentCondition.prepaymentDate" readonly />
+            </div>
+        </form>
+    </div>
+ 
 </article>
 
 @section scripts{
@@ -43,6 +55,7 @@
             data: {
                 message: 'Loading early booking conditions...',
                 books: null,
+                currentCondition: null,
             },
             created: function () {
                 var self = this;
@@ -58,6 +71,19 @@
                             self.message = 'Overview';
                         })
                         .catch(err => console.error('Fout: ' + err));
+                },
+                fetchPrepaymentDetails: function (condition) {
+                    self = this;
+                    fetch(`${apiURL}${condition.id}`)
+                        .then(res => res.json())
+                        .then(function (res) {
+                            self.currentCondition = res;
+                        })
+                        .catch(err => console.error('Fout: ' + err));
+                },
+                getConditionClass: function (condition) { //show that bookingenddate has passed so that list has to be validated
+                    if (Date.parse(condition.bookingEndDate) < Date.now()) return 'list-group-item active';
+                    return 'list-group-item';
                 },
             }
         });
