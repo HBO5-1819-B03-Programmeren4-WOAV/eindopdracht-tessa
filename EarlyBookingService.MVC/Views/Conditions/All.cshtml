@@ -34,12 +34,13 @@
         <form class="form-horizontal">
             <div class="form-group">
                 <label class="control-label small"><i class="far fa-credit-card"></i> Prepayment %</label>
-                <input type="number" class="form-control" :value="currentCondition.prepaymentPercentage" readonly />
+                <input type="number" class="form-control" :value="currentCondition.prepaymentPercentage" />
             </div>
             <div class="form-group">
                 <label class="control-label small"><i class="far fa-calendar"></i> Prepayment date</label>
-                <input type="date" class="form-control" :value="currentCondition.prepaymentDate" readonly />
+                <input type="date" class="form-control" :value="currentCondition.prepaymentDate" />
             </div>
+            <button v-on:click="save" class="btn btn-primary">Save</button>
         </form>
     </div>
  
@@ -84,6 +85,30 @@
                 getConditionClass: function (condition) { //show that bookingenddate has passed so that list has to be validated
                     if (Date.parse(condition.bookingEndDate) < Date.now()) return 'list-group-item active';
                     return 'list-group-item';
+                },
+                save: function () {
+                    var self = this;
+
+                    self.currentCondition.accomodationId = self.currentCondition.accomodation.id;
+
+                    var ajaxHeaders = new Headers();
+                    ajaxHeaders.append("Content-Type", "application/json");
+                    var ajaxConfig = {
+                        method: 'PUT',
+                        body: JSON.stringify(self.currentCondition),
+                        headers: ajaxHeaders
+                    };
+                    let myRequest = new Request(`${apiURL}/${self.currentCondition.id}`, ajaxConfig);
+                    fetch(myRequest)
+                        .then(res => res.json())
+                        .then(res => {
+                            self.updateConditionList(res);
+                        })
+                        .catch(err => console.error('Fout: ' + err));
+                },
+                updateConditionList: function (condition) {
+                    var updatedCondition = self.conditions.filter(c => c.id === condition.id)[0];
+                    updatedCondition.title = condition.title;
                 },
             }
         });
