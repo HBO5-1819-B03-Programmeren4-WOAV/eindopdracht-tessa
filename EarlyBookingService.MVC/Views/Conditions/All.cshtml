@@ -6,13 +6,14 @@
         <h3>{{ message }}</h3>
         <nav>
             <ul class="list-group">
-                <li v-for="condition in conditions" v-on:click="fetchPrepaymentDetails(condition)"
+                <li v-for="condition in conditions"
                     :class="getConditionClass(condition)" style="cursor:pointer">
+                    <h4>{{ condition.accomodationName }} </h4>
                     <div class="bookingdate">
                         <i class="fas fa-book"></i>
                         <span>{{ condition.bookingStartDate }}</span>
                         -
-                        <span>{{ condition.bookingEndDate }}</span>
+                        <span>{{ condition.bookingEndDateString }}</span>
                     </div>
                     <div class="traveldate">
                         <i class="fas fa-plane-departure"></i>
@@ -23,6 +24,14 @@
                     <div class="ebpercentage">
                         <i class="fas fa-percent"></i>
                         <span>{{ condition.amount }}</span>
+                    </div>
+                    <div class="prepayment">
+                        <i class="far fa-credit-card"></i>
+                        <span>{{ condition.prepaymentPercentage }}</span>%
+                        -
+                        <span>{{ condition.prepaymentDate}}</span>
+                         
+                        <a v-on:click="fetchPrepaymentDetails(condition)"><i class="fas fa-pencil-alt"></i></a>
                     </div>
                 </li>
             </ul>
@@ -64,7 +73,7 @@
             methods: {
                 fetchConditions: function () {
                     self = this;
-                    fetch(`${apiURL}`)
+                    fetch(`${apiURL}/Details`)
                         .then(res => res.json())
                         .then(function (conditions) {
                             self.conditions = conditions;
