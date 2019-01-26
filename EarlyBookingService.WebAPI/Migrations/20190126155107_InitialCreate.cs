@@ -98,7 +98,7 @@ namespace EarlyBookingService.WebAPI.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "PriceDetails",
+                name: "PriceDetail",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -109,15 +109,15 @@ namespace EarlyBookingService.WebAPI.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_PriceDetails", x => x.Id);
+                    table.PrimaryKey("PK_PriceDetail", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_PriceDetails_Booking_BookingId",
+                        name: "FK_PriceDetail_Booking_BookingId",
                         column: x => x.BookingId,
                         principalTable: "Booking",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
-                        name: "FK_PriceDetails_PurchaseCost_PurchaseCostId",
+                        name: "FK_PriceDetail_PurchaseCost_PurchaseCostId",
                         column: x => x.PurchaseCostId,
                         principalTable: "PurchaseCost",
                         principalColumn: "Id",
@@ -145,8 +145,8 @@ namespace EarlyBookingService.WebAPI.Migrations
                     { 9, 4, new DateTime(2019, 1, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2019, 7, 25, 0, 0, 0, 0, DateTimeKind.Unspecified), "D2D2D2", new DateTime(2019, 7, 15, 0, 0, 0, 0, DateTimeKind.Unspecified) },
                     { 8, 4, new DateTime(2019, 1, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2019, 7, 25, 0, 0, 0, 0, DateTimeKind.Unspecified), "D1D1D1", new DateTime(2019, 7, 15, 0, 0, 0, 0, DateTimeKind.Unspecified) },
                     { 7, 3, new DateTime(2019, 1, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2019, 6, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), "C3C3C3", new DateTime(2019, 6, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 6, 3, new DateTime(2019, 1, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2019, 7, 25, 0, 0, 0, 0, DateTimeKind.Unspecified), "C2C2C2", new DateTime(2019, 7, 15, 0, 0, 0, 0, DateTimeKind.Unspecified) },
                     { 5, 3, new DateTime(2019, 1, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2019, 8, 25, 0, 0, 0, 0, DateTimeKind.Unspecified), "C1C1C1", new DateTime(2019, 8, 15, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 6, 3, new DateTime(2019, 1, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2019, 7, 25, 0, 0, 0, 0, DateTimeKind.Unspecified), "C2C2C2", new DateTime(2019, 7, 15, 0, 0, 0, 0, DateTimeKind.Unspecified) },
                     { 4, 2, new DateTime(2019, 1, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2019, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), "B2B2B2", new DateTime(2019, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
                     { 3, 2, new DateTime(2019, 1, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2019, 8, 25, 0, 0, 0, 0, DateTimeKind.Unspecified), "B1B1B1", new DateTime(2019, 8, 15, 0, 0, 0, 0, DateTimeKind.Unspecified) },
                     { 2, 1, new DateTime(2019, 1, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2019, 4, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), "A2A2A2", new DateTime(2019, 4, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) }
@@ -158,13 +158,14 @@ namespace EarlyBookingService.WebAPI.Migrations
                 values: new object[,]
                 {
                     { 4, 2, 70.0, new DateTime(2019, 6, 30, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, new DateTime(2019, 10, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2019, 4, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, 1 },
-                    { 7, 4, 25.0, new DateTime(2019, 1, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, new DateTime(2019, 8, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2019, 7, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, 0 },
+                    { 8, 4, 150.0, new DateTime(2019, 6, 30, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, new DateTime(2019, 10, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2019, 4, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, 1 },
                     { 5, 3, 20.0, new DateTime(2019, 1, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, new DateTime(2019, 8, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2019, 7, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, 0 },
                     { 6, 3, 100.0, new DateTime(2019, 6, 30, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, new DateTime(2019, 10, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2019, 4, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, 1 },
                     { 2, 1, 50.0, new DateTime(2019, 6, 30, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, new DateTime(2019, 10, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2019, 4, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, 1 },
                     { 1, 1, 10.0, new DateTime(2019, 1, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, new DateTime(2019, 8, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2019, 7, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, 0 },
+                    { 7, 4, 25.0, new DateTime(2019, 1, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, new DateTime(2019, 8, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2019, 7, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, 0 },
                     { 3, 2, 15.0, new DateTime(2019, 1, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, new DateTime(2019, 8, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2019, 7, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, 0 },
-                    { 8, 4, 150.0, new DateTime(2019, 6, 30, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, new DateTime(2019, 10, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2019, 4, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, 1 }
+                    { 9, 4, 15.0, new DateTime(2018, 12, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2018, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, new DateTime(2019, 3, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2019, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, 1 }
                 });
 
             migrationBuilder.InsertData(
@@ -173,20 +174,20 @@ namespace EarlyBookingService.WebAPI.Migrations
                 values: new object[,]
                 {
                     { 1, new DateTime(1980, 5, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, "Jan", "Kapitein" },
-                    { 22, new DateTime(1985, 6, 23, 0, 0, 0, 0, DateTimeKind.Unspecified), 10, "Lisa", "Simpson" },
-                    { 21, new DateTime(1953, 7, 21, 0, 0, 0, 0, DateTimeKind.Unspecified), 10, "Marge", "Simpson" },
-                    { 20, new DateTime(1950, 8, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), 10, "Homer", "Simpson" },
-                    { 19, new DateTime(1984, 2, 25, 0, 0, 0, 0, DateTimeKind.Unspecified), 9, "Nathalie", "Sanders" },
-                    { 18, new DateTime(1982, 2, 17, 0, 0, 0, 0, DateTimeKind.Unspecified), 9, "Annelies", "Sanders" },
-                    { 17, new DateTime(1990, 9, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), 9, "Thomas", "Sanders" },
-                    { 16, new DateTime(1970, 3, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), 8, "Ali", "Baba" },
                     { 15, new DateTime(1970, 4, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), 8, "Fatima", "Baba" },
+                    { 18, new DateTime(1982, 2, 17, 0, 0, 0, 0, DateTimeKind.Unspecified), 9, "Annelies", "Sanders" },
+                    { 19, new DateTime(1984, 2, 25, 0, 0, 0, 0, DateTimeKind.Unspecified), 9, "Nathalie", "Sanders" },
+                    { 20, new DateTime(1950, 8, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), 10, "Homer", "Simpson" },
+                    { 21, new DateTime(1953, 7, 21, 0, 0, 0, 0, DateTimeKind.Unspecified), 10, "Marge", "Simpson" },
+                    { 22, new DateTime(1985, 6, 23, 0, 0, 0, 0, DateTimeKind.Unspecified), 10, "Lisa", "Simpson" },
                     { 14, new DateTime(1999, 9, 3, 0, 0, 0, 0, DateTimeKind.Unspecified), 7, "Jeroen", "Vos" },
                     { 13, new DateTime(2000, 10, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), 7, "Jaap", "Vos" },
                     { 12, new DateTime(1941, 2, 28, 0, 0, 0, 0, DateTimeKind.Unspecified), 6, "Daenerys", "Targaryen" },
                     { 11, new DateTime(1940, 12, 25, 0, 0, 0, 0, DateTimeKind.Unspecified), 6, "Jon", "Snow" },
                     { 10, new DateTime(1990, 12, 21, 0, 0, 0, 0, DateTimeKind.Unspecified), 5, "Babbel", "Eekhoorn" },
                     { 9, new DateTime(1990, 12, 21, 0, 0, 0, 0, DateTimeKind.Unspecified), 5, "Knabbel", "Eekhoorn" },
+                    { 23, new DateTime(1984, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), 10, "Bart", "Simpson" },
+                    { 24, new DateTime(1989, 2, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), 10, "Maggie", "Simpson" },
                     { 8, new DateTime(1955, 3, 28, 0, 0, 0, 0, DateTimeKind.Unspecified), 4, "Daniel", "Braeke" },
                     { 7, new DateTime(1961, 1, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), 4, "Lorna", "Bogaert" },
                     { 6, new DateTime(1918, 8, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), 3, "Georges", "Van Renterghem" },
@@ -194,8 +195,32 @@ namespace EarlyBookingService.WebAPI.Migrations
                     { 4, new DateTime(1960, 5, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, "Korneel", "Kapitein" },
                     { 3, new DateTime(1995, 6, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, "Joris", "Kapitein" },
                     { 2, new DateTime(1992, 3, 4, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, "Piet", "Kapitein" },
-                    { 23, new DateTime(1984, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), 10, "Bart", "Simpson" },
-                    { 24, new DateTime(1989, 2, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), 10, "Maggie", "Simpson" }
+                    { 16, new DateTime(1970, 3, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), 8, "Ali", "Baba" },
+                    { 17, new DateTime(1990, 9, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), 9, "Thomas", "Sanders" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "PriceDetail",
+                columns: new[] { "Id", "BookingId", "Cost", "PurchaseCostId" },
+                values: new object[,]
+                {
+                    { 12, 8, -750.0, 7 },
+                    { 13, 8, 3000.0, 7 },
+                    { 14, 9, -1125.0, 7 },
+                    { 15, 9, 4500.0, 7 },
+                    { 7, 5, -400.0, 5 },
+                    { 10, 6, 2000.0, 6 },
+                    { 8, 5, 2000.0, 6 },
+                    { 9, 6, -400.0, 5 },
+                    { 16, 10, -1875.0, 7 },
+                    { 6, 4, 1960.0, 4 },
+                    { 5, 3, 1400.0, 4 },
+                    { 4, 3, -210.0, 3 },
+                    { 3, 2, 1400.0, 2 },
+                    { 2, 1, 1000.0, 2 },
+                    { 1, 1, -100.0, 1 },
+                    { 11, 7, 3600.0, 6 },
+                    { 17, 10, 7500.0, 7 }
                 });
 
             migrationBuilder.CreateIndex(
@@ -209,13 +234,13 @@ namespace EarlyBookingService.WebAPI.Migrations
                 column: "BookingId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_PriceDetails_BookingId",
-                table: "PriceDetails",
+                name: "IX_PriceDetail_BookingId",
+                table: "PriceDetail",
                 column: "BookingId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_PriceDetails_PurchaseCostId",
-                table: "PriceDetails",
+                name: "IX_PriceDetail_PurchaseCostId",
+                table: "PriceDetail",
                 column: "PurchaseCostId");
 
             migrationBuilder.CreateIndex(
@@ -230,7 +255,7 @@ namespace EarlyBookingService.WebAPI.Migrations
                 name: "Participant");
 
             migrationBuilder.DropTable(
-                name: "PriceDetails");
+                name: "PriceDetail");
 
             migrationBuilder.DropTable(
                 name: "Booking");

@@ -343,14 +343,129 @@ namespace EarlyBookingService.WebAPI.Models
                 }
                 );
 
-            //modelBuilder.Entity<PriceDetail>()
-               //.ToTable("PriceDetail")
-                //.HasData(
-                //new PriceDetail
-                //{
-                    
-                //}
-                //);
+            modelBuilder.Entity<PriceDetail>()
+               .ToTable("PriceDetail")
+               .HasData(
+                new PriceDetail
+                {
+                   Id = 1,
+                   BookingId = 1,
+                   PurchaseCostId = 1,
+                   Cost = -100
+                },
+                new PriceDetail
+                {
+                    Id = 2,
+                    BookingId = 1,
+                    PurchaseCostId = 2,
+                    Cost = 1000
+                },
+                new PriceDetail
+                {
+                    Id = 3,
+                    BookingId = 2,
+                    PurchaseCostId = 2,
+                    Cost = 1400
+                },
+                new PriceDetail
+                {
+                    Id = 4,
+                    BookingId = 3,
+                    PurchaseCostId = 3,
+                    Cost = -210
+                },
+                new PriceDetail
+                {
+                    Id = 5,
+                    BookingId = 3,
+                    PurchaseCostId = 4,
+                    Cost = 1400
+                },
+                new PriceDetail
+                {
+                    Id = 6,
+                    BookingId = 4,
+                    PurchaseCostId = 4,
+                    Cost = 1960
+                },
+                new PriceDetail
+                {
+                    Id = 7,
+                    BookingId = 5,
+                    PurchaseCostId = 5,
+                    Cost = -400
+                },
+                new PriceDetail
+                {
+                    Id = 8,
+                    BookingId = 5,
+                    PurchaseCostId = 6,
+                    Cost = 2000
+                },
+                new PriceDetail
+                {
+                    Id = 9,
+                    BookingId = 6,
+                    PurchaseCostId = 5,
+                    Cost = -400
+                },
+                new PriceDetail
+                {
+                    Id = 10,
+                    BookingId = 6,
+                    PurchaseCostId = 6,
+                    Cost = 2000
+                },
+                new PriceDetail
+                {
+                    Id = 11,
+                    BookingId = 7,
+                    PurchaseCostId = 6,
+                    Cost = 3600
+                },
+                new PriceDetail
+                {
+                    Id = 12,
+                    BookingId = 8,
+                    PurchaseCostId = 7,
+                    Cost = -750
+                },
+                new PriceDetail
+                {
+                    Id = 13,
+                    BookingId = 8,
+                    PurchaseCostId = 7,
+                    Cost = 3000
+                },
+                new PriceDetail
+                {
+                    Id = 14,
+                    BookingId = 9,
+                    PurchaseCostId = 7,
+                    Cost = -1125
+                },
+                new PriceDetail
+                {
+                    Id = 15,
+                    BookingId = 9,
+                    PurchaseCostId = 7,
+                    Cost = 4500
+                },
+                new PriceDetail
+                {
+                    Id = 16,
+                    BookingId = 10,
+                    PurchaseCostId = 7,
+                    Cost = -1875
+                },
+                new PriceDetail
+                {
+                    Id = 17,
+                    BookingId = 10,
+                    PurchaseCostId = 7,
+                    Cost = 7500
+                }
+                );
 
             modelBuilder.Entity<PurchaseCost>()
                 .ToTable("PurchaseCost")
@@ -454,6 +569,18 @@ namespace EarlyBookingService.WebAPI.Models
                     ReservationEndDate = new DateTime(2019, 10, 31),
                     ValueType = Lib.Models.ValueType.A,
                     Amount = 150,
+                },
+                new PurchaseCost
+                {
+                    Id = 9,
+                    AccomodationId = 4,
+                    CostType = CostType.EBR,
+                    BookingStartDate = new DateTime(2018, 12, 1),
+                    BookingEndDate = new DateTime(2018, 12, 31),
+                    ReservationStartDate = new DateTime(2019, 3, 1),
+                    ReservationEndDate = new DateTime(2019, 3, 31),
+                    ValueType = Lib.Models.ValueType.A,
+                    Amount = 15,
                 }
                 );
         }

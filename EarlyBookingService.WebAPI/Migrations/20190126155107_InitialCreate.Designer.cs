@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EarlyBookingService.WebAPI.Migrations
 {
     [DbContext(typeof(EarlyBookingServiceContext))]
-    [Migration("20190119144727_InitialCreate")]
+    [Migration("20190126155107_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -21,7 +21,7 @@ namespace EarlyBookingService.WebAPI.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("EarlyBookingService.WebAPI.Models.Accomodation", b =>
+            modelBuilder.Entity("EarlyBookingService.Lib.Models.Accomodation", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -45,7 +45,7 @@ namespace EarlyBookingService.WebAPI.Migrations
                     );
                 });
 
-            modelBuilder.Entity("EarlyBookingService.WebAPI.Models.Booking", b =>
+            modelBuilder.Entity("EarlyBookingService.Lib.Models.Booking", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -81,7 +81,7 @@ namespace EarlyBookingService.WebAPI.Migrations
                     );
                 });
 
-            modelBuilder.Entity("EarlyBookingService.WebAPI.Models.Participant", b =>
+            modelBuilder.Entity("EarlyBookingService.Lib.Models.Participant", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -129,7 +129,7 @@ namespace EarlyBookingService.WebAPI.Migrations
                     );
                 });
 
-            modelBuilder.Entity("EarlyBookingService.WebAPI.Models.PriceDetail", b =>
+            modelBuilder.Entity("EarlyBookingService.Lib.Models.PriceDetail", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -147,10 +147,30 @@ namespace EarlyBookingService.WebAPI.Migrations
 
                     b.HasIndex("PurchaseCostId");
 
-                    b.ToTable("PriceDetails");
+                    b.ToTable("PriceDetail");
+
+                    b.HasData(
+                        new { Id = 1, BookingId = 1, Cost = -100.0, PurchaseCostId = 1 },
+                        new { Id = 2, BookingId = 1, Cost = 1000.0, PurchaseCostId = 2 },
+                        new { Id = 3, BookingId = 2, Cost = 1400.0, PurchaseCostId = 2 },
+                        new { Id = 4, BookingId = 3, Cost = -210.0, PurchaseCostId = 3 },
+                        new { Id = 5, BookingId = 3, Cost = 1400.0, PurchaseCostId = 4 },
+                        new { Id = 6, BookingId = 4, Cost = 1960.0, PurchaseCostId = 4 },
+                        new { Id = 7, BookingId = 5, Cost = -400.0, PurchaseCostId = 5 },
+                        new { Id = 8, BookingId = 5, Cost = 2000.0, PurchaseCostId = 6 },
+                        new { Id = 9, BookingId = 6, Cost = -400.0, PurchaseCostId = 5 },
+                        new { Id = 10, BookingId = 6, Cost = 2000.0, PurchaseCostId = 6 },
+                        new { Id = 11, BookingId = 7, Cost = 3600.0, PurchaseCostId = 6 },
+                        new { Id = 12, BookingId = 8, Cost = -750.0, PurchaseCostId = 7 },
+                        new { Id = 13, BookingId = 8, Cost = 3000.0, PurchaseCostId = 7 },
+                        new { Id = 14, BookingId = 9, Cost = -1125.0, PurchaseCostId = 7 },
+                        new { Id = 15, BookingId = 9, Cost = 4500.0, PurchaseCostId = 7 },
+                        new { Id = 16, BookingId = 10, Cost = -1875.0, PurchaseCostId = 7 },
+                        new { Id = 17, BookingId = 10, Cost = 7500.0, PurchaseCostId = 7 }
+                    );
                 });
 
-            modelBuilder.Entity("EarlyBookingService.WebAPI.Models.PurchaseCost", b =>
+            modelBuilder.Entity("EarlyBookingService.Lib.Models.PurchaseCost", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -192,42 +212,43 @@ namespace EarlyBookingService.WebAPI.Migrations
                         new { Id = 5, AccomodationId = 3, Amount = 20.0, BookingEndDate = new DateTime(2019, 1, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), BookingStartDate = new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), CostType = 1, PrepaymentDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), PrepaymentPercentage = 0, ReservationEndDate = new DateTime(2019, 8, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), ReservationStartDate = new DateTime(2019, 7, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), Status = 0, ValueType = 0 },
                         new { Id = 6, AccomodationId = 3, Amount = 100.0, BookingEndDate = new DateTime(2019, 6, 30, 0, 0, 0, 0, DateTimeKind.Unspecified), BookingStartDate = new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), CostType = 0, PrepaymentDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), PrepaymentPercentage = 0, ReservationEndDate = new DateTime(2019, 10, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), ReservationStartDate = new DateTime(2019, 4, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), Status = 0, ValueType = 1 },
                         new { Id = 7, AccomodationId = 4, Amount = 25.0, BookingEndDate = new DateTime(2019, 1, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), BookingStartDate = new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), CostType = 1, PrepaymentDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), PrepaymentPercentage = 0, ReservationEndDate = new DateTime(2019, 8, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), ReservationStartDate = new DateTime(2019, 7, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), Status = 0, ValueType = 0 },
-                        new { Id = 8, AccomodationId = 4, Amount = 150.0, BookingEndDate = new DateTime(2019, 6, 30, 0, 0, 0, 0, DateTimeKind.Unspecified), BookingStartDate = new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), CostType = 0, PrepaymentDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), PrepaymentPercentage = 0, ReservationEndDate = new DateTime(2019, 10, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), ReservationStartDate = new DateTime(2019, 4, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), Status = 0, ValueType = 1 }
+                        new { Id = 8, AccomodationId = 4, Amount = 150.0, BookingEndDate = new DateTime(2019, 6, 30, 0, 0, 0, 0, DateTimeKind.Unspecified), BookingStartDate = new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), CostType = 0, PrepaymentDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), PrepaymentPercentage = 0, ReservationEndDate = new DateTime(2019, 10, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), ReservationStartDate = new DateTime(2019, 4, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), Status = 0, ValueType = 1 },
+                        new { Id = 9, AccomodationId = 4, Amount = 15.0, BookingEndDate = new DateTime(2018, 12, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), BookingStartDate = new DateTime(2018, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), CostType = 1, PrepaymentDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), PrepaymentPercentage = 0, ReservationEndDate = new DateTime(2019, 3, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), ReservationStartDate = new DateTime(2019, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), Status = 0, ValueType = 1 }
                     );
                 });
 
-            modelBuilder.Entity("EarlyBookingService.WebAPI.Models.Booking", b =>
+            modelBuilder.Entity("EarlyBookingService.Lib.Models.Booking", b =>
                 {
-                    b.HasOne("EarlyBookingService.WebAPI.Models.Accomodation", "Accomodation")
+                    b.HasOne("EarlyBookingService.Lib.Models.Accomodation", "Accomodation")
                         .WithMany("Bookings")
                         .HasForeignKey("AccomodationId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("EarlyBookingService.WebAPI.Models.Participant", b =>
+            modelBuilder.Entity("EarlyBookingService.Lib.Models.Participant", b =>
                 {
-                    b.HasOne("EarlyBookingService.WebAPI.Models.Booking", "Booking")
+                    b.HasOne("EarlyBookingService.Lib.Models.Booking", "Booking")
                         .WithMany("Participants")
                         .HasForeignKey("BookingId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("EarlyBookingService.WebAPI.Models.PriceDetail", b =>
+            modelBuilder.Entity("EarlyBookingService.Lib.Models.PriceDetail", b =>
                 {
-                    b.HasOne("EarlyBookingService.WebAPI.Models.Booking", "Booking")
+                    b.HasOne("EarlyBookingService.Lib.Models.Booking", "Booking")
                         .WithMany("PriceDetails")
                         .HasForeignKey("BookingId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("EarlyBookingService.WebAPI.Models.PurchaseCost", "PurchaseCost")
-                        .WithMany("PriceDetails")
+                    b.HasOne("EarlyBookingService.Lib.Models.PurchaseCost", "PurchaseCost")
+                        .WithMany()
                         .HasForeignKey("PurchaseCostId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("EarlyBookingService.WebAPI.Models.PurchaseCost", b =>
+            modelBuilder.Entity("EarlyBookingService.Lib.Models.PurchaseCost", b =>
                 {
-                    b.HasOne("EarlyBookingService.WebAPI.Models.Accomodation", "Accomodation")
+                    b.HasOne("EarlyBookingService.Lib.Models.Accomodation", "Accomodation")
                         .WithMany("PurchaseCosts")
                         .HasForeignKey("AccomodationId")
                         .OnDelete(DeleteBehavior.Cascade);
