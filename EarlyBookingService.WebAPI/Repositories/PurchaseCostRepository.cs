@@ -22,7 +22,7 @@ namespace EarlyBookingService.WebAPI.Repositories
         {
             //show all purchase cost of Early Booking type for Accomodation
             return await GetAll()
-                .Include(t => t.Accomodation)
+                //.Include(t => t.Accomodation)
                 .Where(t => t.CostType == CostType.EBR)
                 .ToListAsync();
         }
