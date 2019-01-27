@@ -10,21 +10,19 @@ using System.Threading.Tasks;
 
 namespace EarlyBookingService.WebAPI.Repositories
 {
-    public class BookingRepository: MappingRepository<Booking>
+    public class PriceDetailRepository: MappingRepository<PriceDetail>
     {
-        public BookingRepository(EarlyBookingServiceContext context, IMapper mapper) : base(context, mapper)
+        public PriceDetailRepository(EarlyBookingServiceContext context, IMapper mapper) : base(context, mapper)
         {
 
         }
 
-        public async Task<List<PriceDetail>> GetBookingWithEBR(int Id)
+        public async Task<List<PriceDetail>> GetByPurchaseCostId(int id)
         {
-            return await db.PriceDetails
-                .Include(b => b.Booking)
-                .Where(p => p.Id == Id)
+            return await GetAll()
+                .Include(t => t.Booking)
+                .Where(t => t.PurchaseCostId == id)
                 .ToListAsync();
-
-            //to change to booking with a EB purchase cost
         }
     }
 }

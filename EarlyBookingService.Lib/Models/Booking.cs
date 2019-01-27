@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,6 +15,8 @@ namespace EarlyBookingService.Lib.Models
         public ICollection<Participant> Participants { get; set; }
         public int AccomodationId { get; set; }
         public Accomodation Accomodation { get; set; }
+
+        [JsonIgnore]
         public ICollection<PriceDetail> PriceDetails { get; set; }
     }
 }

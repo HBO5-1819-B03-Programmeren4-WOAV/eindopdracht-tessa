@@ -8,9 +8,6 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EarlyBookingService.Lib", "EarlyBookingService.Lib\EarlyBookingService.Lib.csproj", "{607F7B25-C1B5-4360-8C4B-CFACF2D2FD03}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EarlyBookingService.MVC", "EarlyBookingService.MVC\EarlyBookingService.MVC.csproj", "{2609AFBA-8950-444B-BDED-86BEFE9206B3}"
-	ProjectSection(ProjectDependencies) = postProject
-		{0FD89BDD-4091-4D97-817E-9EBCF96716E3} = {0FD89BDD-4091-4D97-817E-9EBCF96716E3}
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
