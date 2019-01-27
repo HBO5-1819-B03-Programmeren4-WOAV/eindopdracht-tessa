@@ -9,7 +9,12 @@
             @foreach (Accomodation acco in Model)
             {
             <li class="list-group-item">
-                <b><a href="#" data-id="@acco.Id" class="accomodation">@acco.Name</a></b><span><a asp-controller="Conditions" asp-action="Index" asp-route-id="@acco.Id">Show conditions</a></span>
+                <div>
+                    <b><a href="#" data-id="@acco.Id" class="accomodation">@acco.Name</a></b>
+                </div>
+                <div>
+                    <span><a asp-controller="Conditions" asp-action="Index" asp-route-id="@acco.Id">Show conditions</a></span>
+                </div>
             </li>
             }
         </ul>

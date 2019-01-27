@@ -1,40 +1,40 @@
 ﻿
 <h1>Early Booking Conditions</h1>
 
-<article id="app" class="row">
+<article id="app" class="row" v-cloak>
     <header class="col-md-4">
-        <h3>{{ message }}</h3>
+        <h3 v-cloak>{{ message }}</h3>
         <nav>
             <ul class="list-group">
                 <li v-for="condition in conditions"
                     :class="getConditionClass(condition)" style="cursor:pointer">
-                    <h4>{{ condition.accomodationName }} </h4>
+                    <h4 v-cloak>{{ condition.accomodationName }} </h4>
                     <div class="bookingdate">
                         <i class="fas fa-book"></i>
-                        <span>{{ condition.bookingStartDate }}</span>
+                        <span v-cloak>{{ condition.bookingStartDate }}</span>
                         -
-                        <span>{{ condition.bookingEndDateString }}</span>
+                        <span v-cloak>{{ condition.bookingEndDateString }}</span>
                     </div>
                     <div class="traveldate">
                         <i class="fas fa-plane-departure"></i>
-                        <span>{{ condition.reservationStartDate }}</span>
+                        <span v-cloak>{{ condition.reservationStartDate }}</span>
                         -
-                        <span>{{ condition.reservationEndDate }}</span>
+                        <span v-cloak>{{ condition.reservationEndDate }}</span>
                     </div>
                     <div class="ebpercentage">
                         <i class="fas fa-percent"></i>
-                        <span>{{ condition.amount }}</span>
+                        <span v-cloak>{{ condition.amount }}</span>
                     </div>
                     <div class="prepayment">
                         <i class="far fa-credit-card"></i>
-                        <span>{{ condition.prepaymentPercentage }}</span>%
+                        <span v-cloak>{{ condition.prepaymentPercentage }}</span>%
                         -
-                        <span>{{ condition.prepaymentDate}}</span>
+                        <span v-cloak>{{ condition.prepaymentDate}}</span>
                          
                         <a v-on:click="fetchPrepaymentDetails(condition)"><i class="fas fa-pencil-alt"></i></a>
                     </div>
-                    <div class="bookings">
-                        <a v-bind:href="'/Bookings/Index/' + condition.id "><i class="fas fa-books"></i> Show bookings</a>
+                    <div class="bookings">            
+                        <a v-bind:href="'/Bookings/Index/' + condition.id "><i class="fas fa-books">Show bookings</i></a>
                     </div>
                 </li>
             </ul>
@@ -80,7 +80,7 @@
                         .then(res => res.json())
                         .then(function (conditions) {
                             self.conditions = conditions;
-                            self.message = 'Overview';
+                            self.message = '';
                         })
                         .catch(err => console.error('Fout: ' + err));
                 },
