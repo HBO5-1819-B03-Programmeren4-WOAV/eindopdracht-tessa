@@ -21,7 +21,7 @@ namespace EarlyBookingService.WebAPI.Controllers
         [HttpGet("{id}")]
         public override async Task<IActionResult> Get(int id)
         {
-            return Ok(await repository.GetByPurchaseCostId(id));
+            return Ok(await repository.GetBookingList(id));
         }
     }
 }

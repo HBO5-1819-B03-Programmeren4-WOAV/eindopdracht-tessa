@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using EarlyBookingService.Lib.Models;
+using EarlyBookingService.Lib.DTOs;
 using EarlyBookingService.WebAPI.Models;
 using EarlyBookingService.WebAPI.Repositories.Base;
 using Microsoft.EntityFrameworkCore;
@@ -16,13 +17,18 @@ namespace EarlyBookingService.WebAPI.Repositories
         {
 
         }
-
-        public async Task<List<PriceDetail>> GetByPurchaseCostId(int id)
+        
+        public async Task<List<PriceDetailBasic>> GetBookingList(int id)
         {
-            return await GetAll()
-                .Include(t => t.Booking)
-                .Where(t => t.PurchaseCostId == id)
-                .ToListAsync();
+            return await db.PriceDetails.Where(t => t.PurchaseCostId == id)
+                .Select(c => new PriceDetailBasic
+                {
+                    Id = c.Id,
+                    BookingId = c.Booking.Id,
+                    BookingReservationNumber = c.Booking.ReservationNumber,
+                    PurchaseCostId = c.PurchaseCost.Id,
+                }
+                ).ToListAsync();
         }
     }
 }

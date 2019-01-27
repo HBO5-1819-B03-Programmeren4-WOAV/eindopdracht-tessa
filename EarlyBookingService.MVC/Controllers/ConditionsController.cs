@@ -21,5 +21,6 @@ namespace EarlyBookingService.MVC.Controllers
         {
             return View();
         }
+
     }
 }

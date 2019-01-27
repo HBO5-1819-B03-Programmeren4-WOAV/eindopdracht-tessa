@@ -1,0 +1,17 @@
+﻿@using EarlyBookingService.Lib.DTOs
+@model List<PriceDetailBasic>
+
+<h2>Index</h2>
+
+<div class="row">
+    <div class="col-md-4">
+        <ul class="list-group">
+            @foreach(PriceDetailBasic priceDetail in Model)
+            {
+                <li class="list-group-item">
+                    @priceDetail.BookingReservationNumber
+                </li>
+            }
+        </ul>
+    </div>
+</div>
