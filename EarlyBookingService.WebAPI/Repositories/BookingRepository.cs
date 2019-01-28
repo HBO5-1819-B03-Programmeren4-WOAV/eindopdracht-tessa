@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using EarlyBookingService.Lib.DTOs;
 using EarlyBookingService.Lib.Models;
 using EarlyBookingService.WebAPI.Models;
 using EarlyBookingService.WebAPI.Repositories.Base;
@@ -25,6 +26,21 @@ namespace EarlyBookingService.WebAPI.Repositories
                 .ToListAsync();
 
             //to change to booking with a EB purchase cost
+        }
+
+        public async Task<BookingDetail> GetDetailById(int id)
+        {
+            return await db.Bookings
+                .Select(c => new BookingDetail
+                {
+                    Id = c.Id,
+                    BookingDate = c.BookingDate.ToString("dd/MM/yyyy"),
+                    ReservationNumber = c.ReservationNumber,
+                    StartDate = c.StartDate.ToString("dd/MM/yyyy"),
+                    EndDate = c.EndDate.ToString("dd/MM/yyyy"),
+                    NumberOfParticipants = c.Participants.Count(),
+                    TotalCost = 0
+                }).FirstOrDefaultAsync(c => c.Id == id);
         }
     }
 }

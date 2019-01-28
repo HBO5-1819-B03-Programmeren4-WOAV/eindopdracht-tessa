@@ -24,5 +24,13 @@ namespace EarlyBookingService.WebAPI.Controllers
         {
             return Ok(await repository.GetBookingWithEBR(Id));
         }
+
+        // GET : api/Bookings/Detail/id
+        [HttpGet("Detail/{id}")]
+        public async Task<IActionResult> GetDetail(int Id)
+        {
+            return Ok(await repository.GetDetailById(Id));
+        }
+        
     }
 }
