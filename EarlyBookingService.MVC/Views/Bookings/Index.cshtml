@@ -3,15 +3,60 @@
 
 <h2>Early Booking List</h2>
 
-<div class="row">
-    <div class="col-md-4">
+<article id="app" class="row">
+    <header class="col-md-4">
         <ul class="list-group">
-            @foreach(PriceDetailBasic priceDetail in Model)
-            {
-                <li class="list-group-item">
-                    @priceDetail.BookingReservationNumber
-                </li>
-            }
+            <li v-for="booking in bookings" >
+                <a v-on:click="fetchBookingDetails(booking)">{{ booking.bookingReservationNumber }} </a>
+            </li>
         </ul>
+    </header>
+    <div v-if="selectedBooking" class="col-md-4">
+        <h3>Details</h3>
+        <div>
+            <span>{{ selectedBooking.reservationNumber }}</span>
+        </div>
     </div>
-</div>
+</article>
+
+@section scripts
+{
+    <script src="~/js/vue.js"></script>
+    <script>
+        var apiURL = "https://localhost:44396/api/Bookings/Detail/";
+        var bookingURL = "https://localhost:44396/api/PriceDetails/";
+
+        var app = new Vue({
+                el: '#app',
+                data:
+                {
+                    bookings: null,
+                    selectedBooking: null,
+                },
+                created: function () {
+                    var self = this;
+                    self.fetchBooking(window.location.href.substr(window.location.href.lastIndexOf('/') + 1));
+                },
+            methods: {
+                fetchBooking: function (id) {
+                    self = this;
+                    fetch(`${bookingURL}${id}`)
+                        .then(res => res.json())
+                        .then(function (bookings) {
+                            self.bookings = bookings;
+                        })
+                        .catch(err => console.error('Fout: ' + err));
+                },
+                fetchBookingDetails: function (booking) {
+                    self = this;
+                    fetch(`${apiURL}${booking.id}`)
+                        .then(res => res.json())
+                        .then(function (res) {
+                            self.selectedBooking = res;
+                        })
+                        .catch(err => console.error('Fout: ' + err));
+                },
+            }
+        });
+    </script>
+}

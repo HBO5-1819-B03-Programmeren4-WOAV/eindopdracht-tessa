@@ -15,8 +15,9 @@ namespace EarlyBookingService.MVC.Controllers
         string baseUri = "https://localhost:44396/api/PriceDetails/";
         public IActionResult Index(int id)
         {
-            string bookingsUri = $"{baseUri}/{id}";
-            return View(WebApiHelper.GetApiResult<List<PriceDetailBasic>>(bookingsUri));
+            //string bookingsUri = $"{baseUri}/{id}";
+            //return View(WebApiHelper.GetApiResult<List<PriceDetailBasic>>(bookingsUri));
+            return View();
         }
     }
 }
