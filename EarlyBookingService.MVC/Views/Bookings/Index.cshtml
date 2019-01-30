@@ -3,7 +3,7 @@
 
 <h2>Early Booking List</h2>
 
-<article id="app" class="row">
+<article id="app" class="row" v-cloak>
     <header class="col-md-4">
         <ul class="list-group">
             <li v-for="booking in bookings" >
@@ -12,9 +12,22 @@
         </ul>
     </header>
     <div v-if="selectedBooking" class="col-md-4">
-        <h3>Details</h3>
+        <h3>{{ selectedBooking.reservationNumber }}</h3>
         <div>
-            <span>{{ selectedBooking.reservationNumber }}</span>
+            <i class="fas fa-book"></i>
+            <span>{{ selectedBooking.bookingDate }}</span>
+        </div>
+        <div>
+            <i class="fas fa-plane-departure"></i>
+            <span>{{ selectedBooking.startDate }}</span>
+        </div>
+        <div>
+            <i class="fas fa-plane-arrival"></i>
+            <span>{{ selectedBooking.endDate }}</span>
+        </div>
+        <div>
+            <i class="fas fa-users"></i>
+            <span>{{ selectedBooking.numberOfParticipants }}</span>
         </div>
     </div>
 </article>
