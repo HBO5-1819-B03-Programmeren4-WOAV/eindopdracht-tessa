@@ -44,6 +44,7 @@ namespace EarlyBookingService.WebAPI
             services.AddScoped<BookingRepository>();
             services.AddScoped<AccomodationRepository>();
             services.AddScoped<PriceDetailRepository>();
+            services.AddScoped<ParticipantRepository>();
 
             services.AddCors();
         }
