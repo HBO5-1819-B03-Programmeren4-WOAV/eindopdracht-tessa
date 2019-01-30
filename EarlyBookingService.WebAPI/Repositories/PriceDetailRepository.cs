@@ -30,5 +30,12 @@ namespace EarlyBookingService.WebAPI.Repositories
                 }
                 ).ToListAsync();
         }
+
+        public async Task<List<PriceDetail>> GetPriceDetailsOfBooking(int id)
+        {
+            return await GetAll()
+                .Where(p => p.BookingId == id)
+                .ToListAsync();
+        }
     }
 }
