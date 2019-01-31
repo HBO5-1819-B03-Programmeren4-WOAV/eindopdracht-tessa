@@ -9,28 +9,31 @@
     <div class="col-md-4">
         @foreach (PurchaseCost ebCost in Model)
         {
-            <div>
-                <div class="bookingdate">
-                    <i class="fas fa-book"></i>
-                    <span>@ebCost.BookingStartDate</span>
-                    -
-                    <span>@ebCost.BookingEndDate</span>
-                </div>
-                <div class="traveldate">
-                    <i class="fas fa-plane-departure"></i>
-                    <span>@ebCost.ReservationStartDate</span>
-                    -
-                    <span>@ebCost.ReservationEndDate</span>
-                </div>
-                <div class="ebpercentage">
-                    <i class="fas fa-percent"></i>
-                    <span>@ebCost.Amount</span>
-                </div>
-                <div class="prepayment">
-                    <i class="far fa-credit-card"></i>
-                </div>
-                <a asp-controller="Bookings" asp-action="Index" asp-route-id="@ebCost.Id">Show bookings</a>
+        <div>
+            <div class="bookingdate">
+                <i class="fas fa-book"></i>
+                <span>@ebCost.BookingStartDate</span>
+                -
+                <span>@ebCost.BookingEndDate</span>
             </div>
+            <div class="traveldate">
+                <i class="fas fa-plane-departure"></i>
+                <span>@ebCost.ReservationStartDate</span>
+                -
+                <span>@ebCost.ReservationEndDate</span>
+            </div>
+            <div class="ebpercentage">
+                <i class="fas fa-percent"></i>
+                <span>@ebCost.Amount</span>
+            </div>
+            <div class="prepayment">
+                <i class="far fa-credit-card"></i>
+                <span v-cloak>{{ condition.prepaymentPercentage }}</span>%
+                -
+                <span v-cloak>{{ condition.prepaymentDate}}</span>
+            </div>
+            <a asp-controller="Bookings" asp-action="Index" asp-route-id="@ebCost.Id"><i class="fas fa-search-plus"></i></a>Show bookings
+        </div>
         }
     </div>
 </div>

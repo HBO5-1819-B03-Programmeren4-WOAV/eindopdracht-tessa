@@ -49,3 +49,7 @@ body {
     display: none;
 }
 
+.list-group-item active {
+    color: antiquewhite;
+}
+
