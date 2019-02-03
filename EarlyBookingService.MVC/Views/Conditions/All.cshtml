@@ -26,9 +26,12 @@
                     </div>
                     <div class="prepayment">
                         <i class="far fa-credit-card"></i>
-                        <span v-cloak>{{ condition.prepaymentPercentage }}</span>%
-                        -
-                        <span v-cloak>{{ condition.prepaymentDate}}</span>
+                        <span v-cloak v-if="condition.prepayment">
+                            <span v-cloak>{{ condition.prepaymentPercentage }}</span>%
+                            -
+                            <span v-cloak>{{ condition.prepaymentDate}}</span>
+                        </span>
+                        <span v-cloak v-else>No prepayment</span>
                     </div>
                     <div class="actions">
                         <a class="btn btn-secondary" v-bind:href="'/Bookings/Index/' + condition.id "><i class="fas fa-search-plus"></i> Show bookings</a>
@@ -67,7 +70,7 @@
             el: '#app',
             data: {
                 message: 'Loading early booking conditions...',
-                books: null,
+                conditions: null,
                 currentCondition: null,
             },
             created: function () {
@@ -82,6 +85,9 @@
                         .then(function (conditions) {
                             conditions.forEach(function (condition, i) {
                                 condition.isActive = false;
+                                condition.prepayment = false;
+                                if (condition.prepaymentPercentage > 0)
+                                    condition.prepayment = true;
                             });
                             self.conditions = conditions;
                             self.message = '';
