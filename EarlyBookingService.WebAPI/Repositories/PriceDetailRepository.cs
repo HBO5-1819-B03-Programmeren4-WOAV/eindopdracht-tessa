@@ -35,6 +35,7 @@ namespace EarlyBookingService.WebAPI.Repositories
         {
             return await GetAll()
                 .Where(p => p.BookingId == id)
+                .OrderBy(p => p.PurchaseCost.CostType)
                 .ToListAsync();
         }
     }

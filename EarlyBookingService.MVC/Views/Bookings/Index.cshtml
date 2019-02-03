@@ -41,6 +41,15 @@
         </div>
         <div>
             <i class="fas fa-coins"></i>
+            <span>Purchase Cost</span>
+            <a v-on:click="fetchPriceDetails(selectedBooking)"><i class="fas fa-search-plus"></i></a>
+            <div v-if="priceDetails">
+                <ul class="list-group">
+                    <li class="list-group-item" v-for="priceDetail in priceDetails">
+                        <span>{{ priceDetail.cost }} </span>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 </article>
@@ -52,6 +61,7 @@
         var apiURL = "https://localhost:44396/api/Bookings/Detail/";
         var bookingURL = "https://localhost:44396/api/PriceDetails/";
         var participantsURL = "https://localhost:44396/api/Participants/";
+        var pricedetailsURL = "https://localhost:44396/api/PriceDetails/Booking/"
 
         var app = new Vue({
                 el: '#app',
@@ -60,6 +70,7 @@
                     bookings: null,
                     selectedBooking: null,
                     participants: null,
+                    priceDetails: null,
                 },
                 created: function () {
                     var self = this;
@@ -90,6 +101,15 @@
                         .then(res => res.json())
                         .then(function (res) {
                             self.participants = res;
+                        })
+                        .catch(err => console.error('Fout: ' + err));
+                },
+                fetchPriceDetails: function (booking) {
+                    self = this;
+                    fetch(`${pricedetailsURL}${booking.id}`)
+                        .then(res => res.json())
+                        .then(function (res) {
+                            self.priceDetails = res;
                         })
                         .catch(err => console.error('Fout: ' + err));
                 },

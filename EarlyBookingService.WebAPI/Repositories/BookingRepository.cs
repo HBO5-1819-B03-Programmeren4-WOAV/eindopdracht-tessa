@@ -30,7 +30,7 @@ namespace EarlyBookingService.WebAPI.Repositories
 
         public async Task<BookingDetail> GetDetailById(int id)
         {
-            return await db.Bookings
+             return await db.Bookings
                 .Select(c => new BookingDetail
                 {
                     Id = c.Id,
@@ -38,8 +38,7 @@ namespace EarlyBookingService.WebAPI.Repositories
                     ReservationNumber = c.ReservationNumber,
                     StartDate = c.StartDate.ToString("dd/MM/yyyy"),
                     EndDate = c.EndDate.ToString("dd/MM/yyyy"),
-                    NumberOfParticipants = c.Participants.Count(),
-                    TotalCost = 0
+                    NumberOfParticipants = c.Participants.Count()
                 }).FirstOrDefaultAsync(c => c.Id == id);
         }
     }
