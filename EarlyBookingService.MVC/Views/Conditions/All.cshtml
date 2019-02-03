@@ -6,14 +6,13 @@
         <h3 v-cloak>{{ message }}</h3>
         <nav>
             <ul class="list-group">
-                <li class="list-group-item" v-for="condition in conditions"
-                     style="cursor:pointer">
+                <li v-for="condition in conditions" :class="getConditionClass(condition)">
                     <h4 v-cloak>{{ condition.accomodationName }} </h4>
                     <div class="bookingdate">
                         <i class="fas fa-book"></i>
                         <span v-cloak>{{ condition.bookingStartDate }}</span>
                         -
-                        <span v-cloak :class="getConditionClass(condition)">{{ condition.bookingEndDateString }}</span>
+                        <span v-cloak :class="getEndDateClass(condition)">{{ condition.bookingEndDateString }}</span>
                     </div>
                     <div class="traveldate">
                         <i class="fas fa-plane-departure"></i>
@@ -30,29 +29,31 @@
                         <span v-cloak>{{ condition.prepaymentPercentage }}</span>%
                         -
                         <span v-cloak>{{ condition.prepaymentDate}}</span>
-                         
-                        <a v-on:click="fetchPrepaymentDetails(condition)"><i class="fas fa-pencil-alt"></i></a>
                     </div>
-                    <div class="bookings">
-                        <a v-bind:href="'/Bookings/Index/' + condition.id "><i class="fas fa-search-plus"></i></a>Show bookings
+                    <div class="actions">
+                        <a class="btn btn-secondary" v-bind:href="'/Bookings/Index/' + condition.id "><i class="fas fa-search-plus"></i> Show bookings</a>
+                        <a class="btn btn-primary" v-on:click="fetchPrepaymentDetails(condition)"><i class="fas fa-pencil-alt"></i> Edit prepayment</a>
                     </div>
                 </li>
             </ul>
         </nav>
     </header>
-    <div v-if="currentCondition" class="col-md-6">
-        <h3>Details</h3>
-        <form class="form-horizontal">
-            <div class="form-group">
-                <label class="control-label small"><i class="far fa-credit-card"></i> Prepayment %</label>
-                <input type="number" class="form-control" v-model="currentCondition.prepaymentPercentage" />
-            </div>
-            <div class="form-group">
-                <label class="control-label small"><i class="far fa-calendar"></i> Prepayment date</label>
-                <input type="datetime" class="form-control" v-model="currentCondition.prepaymentDate" />
-            </div>
-            <button v-on:click="save" class="btn btn-primary">Save</button>
-        </form>
+    <div class="selectedCondition col-md-8">
+        <span v-if="!currentCondition" class="placeholder">Please select a condition to be able to edit the prepayment details</span>
+        <div v-if="currentCondition">
+            <h3>Prepayment details</h3>
+            <form>
+                <div class="form-group">
+                    <label class="control-label small"><i class="far fa-credit-card"></i> Prepayment %</label>
+                    <input type="number" class="form-control" v-model="currentCondition.prepaymentPercentage" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label small"><i class="far fa-calendar"></i> Prepayment date</label>
+                    <input type="datetime" class="form-control" v-model="currentCondition.prepaymentDate" />
+                </div>
+                <button v-on:click="save" class="btn btn-primary">Save</button>
+            </form>
+        </div>
     </div>
  
 </article>
@@ -79,6 +80,9 @@
                     fetch(`${apiURL}/Details`)
                         .then(res => res.json())
                         .then(function (conditions) {
+                            conditions.forEach(function (condition, i) {
+                                condition.isActive = false;
+                            });
                             self.conditions = conditions;
                             self.message = '';
                         })
@@ -90,12 +94,22 @@
                         .then(res => res.json())
                         .then(function (res) {
                             self.currentCondition = res;
+                            self.makeConditionActive(condition.id);
                         })
                         .catch(err => console.error('Fout: ' + err));
                 },
-                getConditionClass: function (condition) { //show that bookingenddate has passed so that list has to be validated
-                    if (Date.parse(condition.bookingEndDate) < Date.now()) return 'list-group-item active';
+                getEndDateClass: function (condition) { //show that bookingenddate has passed so that list has to be validated
+                    if (Date.parse(condition.bookingEndDate) < Date.now()) return 'end-date passed';
+                    return 'end-date due';
+                },
+                getConditionClass: function (condition) {
+                    if (condition.isActive) return 'list-group-item active';
                     return 'list-group-item';
+                },
+                makeConditionActive: function (conditionid) {
+                    self.conditions.forEach(function (condition, i) {
+                        condition.isActive = condition.id === conditionid ? true : false;
+                    });
                 },
                 save: function () {
                     var self = this;

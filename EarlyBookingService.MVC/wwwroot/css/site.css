@@ -3,6 +3,7 @@ for details on configuring this project to bundle and minify static web assets. 
 body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background-color:#f4f4f4;
 }
 
 /* Wrapping element */
@@ -36,20 +37,44 @@ body {
     }
 }
 
-.traveldate, bookingdate, .ebpercentage {
-    margin-top: 5px;
+.traveldate, .bookingdate, .ebpercentage, .prepayment {
+    margin-top: 10px;
 }
-    .traveldate i.fas, .bookingdate i.fas, .ebpercentage i.fas {
-        margin-right: 10px;
-        font-size: 18px;
-        color: purple;
-    }
 
 [v-cloak] {
     display: none;
 }
 
-.list-group-item active {
-    color: antiquewhite;
+.end-date.passed {
+    color: red;
 }
 
+.list-group-item i{
+    display:inline-block;
+    width:30px;
+    text-align:center;
+    color:black;
+}
+
+.actions {
+    margin-top:20px;
+    margin-bottom:10px;
+}
+
+.actions .btn i {
+    color:inherit;
+}
+
+
+.selectedCondition {
+    background: white;
+    border: 1px solid #ddd;
+    border-top-right-radius:4px;
+    border-bottom-right-radius:4px;
+    padding:20px;
+    margin-top:20px;
+}
+
+.selectedCondition .form-group{
+    margin-bottom:20px;
+}
