@@ -81,36 +81,24 @@
                 fetchConditions: function (id) {
                     self = this;
                     if (id == 0) {
-
-                        fetch(`${apiURL}Details`)
-                            .then(res => res.json())
-                            .then(function (conditions) {
-                                conditions.forEach(function (condition, i) {
-                                    condition.isActive = false;
-                                    condition.prepayment = false;
-                                    if (condition.prepaymentPercentage > 0)
-                                        condition.prepayment = true;
-                                });
-                                self.conditions = conditions;
-                                self.message = '';
-                            })
-                            .catch(err => console.error('Fout: ' + err));
+                        var URL = apiURL + "Details/"   
                     }
                     else {
-                        fetch(`${apiURL}Details/${id}`)
-                            .then(res => res.json())
-                            .then(function (conditions) {
-                                conditions.forEach(function (condition, i) {
-                                    condition.isActive = false;
-                                    condition.prepayment = false;
-                                    if (condition.prepaymentPercentage > 0)
-                                        condition.prepayment = true;
-                                });
-                                self.conditions = conditions;
-                                self.message = '';
-                            })
-                            .catch(err => console.error('Fout: ' + err));
+                        var URL = apiURL + "Details/" + id
                     }
+                    fetch(`${URL}`)
+                        .then(res => res.json())
+                        .then(function (conditions) {
+                            conditions.forEach(function (condition, i) {
+                                condition.isActive = false;
+                                condition.prepayment = false;
+                                if (condition.prepaymentPercentage > 0)
+                                    condition.prepayment = true;
+                            });
+                            self.conditions = conditions;
+                            self.message = '';
+                        })
+                        .catch(err => console.error('Fout: ' + err));
 
                 },
                 fetchPrepaymentDetails: function (condition) {
