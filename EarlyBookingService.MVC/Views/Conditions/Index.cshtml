@@ -81,6 +81,7 @@
                 fetchConditions: function (id) {
                     self = this;
                     if (id == 0) {
+
                         fetch(`${apiURL}Details`)
                             .then(res => res.json())
                             .then(function (conditions) {

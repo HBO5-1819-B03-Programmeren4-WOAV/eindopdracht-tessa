@@ -6,7 +6,7 @@
 <article id="app" class="row" v-cloak>
     <header class="col-md-4">
         <ul class="list-group">
-            <li class="list-group-item" v-for="booking in bookings">
+            <li :class="getBookingClass(booking)" v-for="booking in bookings" >
                 {{ booking.bookingReservationNumber }} <a v-on:click="fetchBookingDetails(booking)"><i class="fas fa-info-circle"></i></a>
             </li>
         </ul>
@@ -82,6 +82,9 @@
                     fetch(`${bookingURL}${id}`)
                         .then(res => res.json())
                         .then(function (bookings) {
+                            bookings.forEach(function (booking, i) {
+                                booking.isActive = false;
+                            });
                             self.bookings = bookings;
                         })
                         .catch(err => console.error('Fout: ' + err));
@@ -92,6 +95,7 @@
                         .then(res => res.json())
                         .then(function (res) {
                             self.selectedBooking = res;
+                            self.makeBookingActive(booking.id);
                         })
                         .catch(err => console.error('Fout: ' + err));
                 },
@@ -113,7 +117,15 @@
                         })
                         .catch(err => console.error('Fout: ' + err));
                 },
-
+                getBookingClass: function (booking) {
+                    if (booking.isActive) return 'list-group-item active';
+                    return 'list-group-item';
+                },
+                makeBookingActive: function (bookingid) {
+                    self.bookings.forEach(function (booking, i) {
+                        booking.isActive = booking.id === bookingid ? true : false;
+                    });
+                },
             }
         });
     </script>
