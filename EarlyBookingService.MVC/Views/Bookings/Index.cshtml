@@ -6,7 +6,7 @@
 <article id="app" class="row" v-cloak>
     <header class="col-md-4">
         <ul class="list-group">
-            <li :class="getBookingClass(booking)" v-for="booking in bookings" >
+            <li :class="getBookingClass(booking)" v-for="booking in bookings">
                 {{ booking.bookingReservationNumber }} <a v-on:click="fetchBookingDetails(booking)"><i class="fas fa-info-circle"></i></a>
             </li>
         </ul>
@@ -91,7 +91,7 @@
                 },
                 fetchBookingDetails: function (booking) {
                     self = this;
-                    fetch(`${apiURL}${booking.id}`)
+                    fetch(`${apiURL}${booking.bookingId}`)
                         .then(res => res.json())
                         .then(function (res) {
                             self.selectedBooking = res;

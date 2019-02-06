@@ -434,7 +434,7 @@ namespace EarlyBookingService.WebAPI.Models
                 {
                     Id = 13,
                     BookingId = 8,
-                    PurchaseCostId = 7,
+                    PurchaseCostId = 8,
                     Cost = 3000
                 },
                 new PriceDetail
@@ -448,7 +448,7 @@ namespace EarlyBookingService.WebAPI.Models
                 {
                     Id = 15,
                     BookingId = 9,
-                    PurchaseCostId = 7,
+                    PurchaseCostId = 8,
                     Cost = 4500
                 },
                 new PriceDetail
@@ -462,7 +462,7 @@ namespace EarlyBookingService.WebAPI.Models
                 {
                     Id = 17,
                     BookingId = 10,
-                    PurchaseCostId = 7,
+                    PurchaseCostId = 8,
                     Cost = 7500
                 }
                 );

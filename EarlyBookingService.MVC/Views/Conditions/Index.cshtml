@@ -80,7 +80,7 @@
             methods: {
                 fetchConditions: function (id) {
                     self = this;
-                    if (id == 0) {
+                    if (id == 0 || id == "0?") {
                         var URL = apiURL + "Details/"   
                     }
                     else {
